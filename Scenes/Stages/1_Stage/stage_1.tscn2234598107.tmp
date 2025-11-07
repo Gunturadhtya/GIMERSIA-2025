@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=4 uid="uid://c03yw85t8qyf2"]
+
+[ext_resource type="Script" uid="uid://hha50x3tkip2" path="res://Scenes/Stages/stage_logic.gd" id="1_qwrnw"]
+[ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Placeholder/Tileset/pyramid_tileset.tres" id="1_t1uq6"]
+[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
+
+[node name="Stage1" type="Node2D" node_paths=PackedStringArray("tilemap_layer")]
+script = ExtResource("1_qwrnw")
+tilemap_layer = NodePath("TileMapLayer")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAApABwAAAAAAAAAAAAhABwAAAAAAAAAAAAiABsAAAAAAAAAAAAjABoAAAAAAAAAAAAjABwAAAAAAAAAAAAkABkAAAAAAAAAAAAkABsAAAAAAAAAAAAlABgAAAAAAAAAAAAlABoAAAAAAAAAAAAlABwAAAAAAAAAAAAmABcAAAAAAAAAAAAmABkAAAAAAAAAAAAmABsAAAAAAAAAAAAnABgAAAAAAAAAAAAnABoAAAAAAAAAAAAnABwAAAAAAAAAAAAoABcAAAAAAAAAAAAoABkAAAAAAAAAAAAoABsAAAAAAAAAAAApABgAAAAAAAAAAAApABoAAAAAAAAAAAAqABkAAAAAAAAAAAAqABsAAAAAAAAAAAArABoAAAAAAAAAAAArABwAAAAAAAAAAAAsABsAAAAAAAAAAAAtABwAAAAAAAAAAAAnABYAAAAQAAQAAAA=")
+tile_set = ExtResource("1_t1uq6")
+
+[node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("2_0j8e6")]
+world = NodePath("..")
