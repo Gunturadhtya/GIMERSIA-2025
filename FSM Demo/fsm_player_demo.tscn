@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://pd3tx65n8mti"]
+
+[ext_resource type="Script" uid="uid://byip6ksrlfuas" path="res://FSM Demo/Scripts/fsm_player_demo.gd" id="1_1hn4l"]
+[ext_resource type="Texture2D" uid="uid://el8xb3lwdvqk" path="res://icon.svg" id="2_rdadf"]
+[ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="3_ifa3x"]
+[ext_resource type="Script" uid="uid://cx62m42tc20ly" path="res://FSM Demo/Scripts/States/walking.gd" id="4_tvdhc"]
+[ext_resource type="Script" uid="uid://bhe4o0jp15q3t" path="res://FSM Demo/Scripts/States/idle.gd" id="5_l8cxb"]
+[ext_resource type="Script" uid="uid://b6abuub5mfmy" path="res://FSM Demo/Scripts/States/jumping.gd" id="6_1q5pf"]
+[ext_resource type="Script" uid="uid://cdthyrqubjytu" path="res://FSM Demo/Scripts/States/falling.gd" id="7_4jrtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr1x4"]
+size = Vector2(120, 117)
+
+[node name="FsmPlayerDemo" type="CharacterBody2D"]
+script = ExtResource("1_1hn4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_mr1x4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rdadf")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_ifa3x")
+initial_state = NodePath("Idle")
+
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("4_tvdhc")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_l8cxb")
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource("6_1q5pf")
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("7_4jrtj")
