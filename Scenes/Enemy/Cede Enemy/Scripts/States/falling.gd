@@ -3,6 +3,7 @@ extends CedeState
 var falling_tween: Tween
 
 func enter(previous_state_path: String, data := {}) -> void:
+	cede.is_active = false
 	if falling_tween and falling_tween.is_running():
 		falling_tween.kill()
 	

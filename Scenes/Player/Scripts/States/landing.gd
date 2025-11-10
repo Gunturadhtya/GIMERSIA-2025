@@ -18,6 +18,6 @@ func _is_valid_cell(grid_pos: Vector2i) -> bool:
 
 func _is_on_enemy_tile(grid_pos: Vector2i) -> bool:
 	for enemy in get_tree().get_nodes_in_group("enemies"):
-		if enemy.current_grid_pos == grid_pos:
+		if enemy.current_grid_pos == grid_pos and enemy.is_active:
 			return true
 	return false
