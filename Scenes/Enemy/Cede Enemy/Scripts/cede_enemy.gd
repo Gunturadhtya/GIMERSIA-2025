@@ -5,7 +5,7 @@ var current_grid_pos: Vector2i
 var spawn_grid_pos: Vector2i
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine = $StateMachine
-
+var is_active: bool = false
 var player_move_count: int = 0
 
 # Called when the node enters the scene tree for the first time.

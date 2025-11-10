@@ -11,6 +11,8 @@ func _ready() -> void:
 		state_node.finished.connect(_transition_to_next_state)
 
 	await owner.ready
+	if owner.has_signal("hit_by_enemy"):
+		owner.hit_by_enemy.connect(_on_owner_hit)
 	state.enter("")
 
 
@@ -35,3 +37,6 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	state.exit()
 	state = get_node(target_state_path)
 	state.enter(previous_state_path, data)
+
+func _on_owner_hit():
+	_transition_to_next_state("Dead")

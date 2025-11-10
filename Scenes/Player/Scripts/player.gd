@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal hit_by_enemy
+
 @export var world: Node2D
 var current_grid_pos: Vector2i
 var input_buffer: Vector2i = Vector2i.ZERO
@@ -8,6 +10,7 @@ var is_hopping: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var state_machine = $StateMachine
 
 func _ready():
 	current_grid_pos = world.get_spawn_pos()

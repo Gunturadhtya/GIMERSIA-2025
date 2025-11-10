@@ -113,8 +113,8 @@ theme_override_font_sizes/font_size = 64
 text = "You Lose
 "
 
-[node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("11_r1t47")]
-world = NodePath("..")
-
 [node name="RythmManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_1bqcc")]
 player = NodePath("../Player")
+
+[node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("11_r1t47")]
+world = NodePath("..")
