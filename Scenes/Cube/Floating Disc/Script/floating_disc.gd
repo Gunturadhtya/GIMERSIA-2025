@@ -2,13 +2,20 @@ extends Node2D
 
 signal ride_finished(final_world_position)
 
+@onready var cube_sprite = $Sprite2D
+
 @export var target_marker: NodePath
+@export var sprite_texture: Texture2D
 
 var target_position: Vector2
 var original_position: Vector2
 
+
 func _ready():
 	original_position = global_position
+	
+	if sprite_texture != null:
+		cube_sprite.texture = sprite_texture
 	
 	if not target_marker.is_empty():
 		target_position = get_node(target_marker).global_position
@@ -17,6 +24,8 @@ func start_ride(player: Player):
 	var original_parent = player.get_parent()
 	player.reparent(self)
 	player.global_position = self.global_position
+	player.z_index = 10
+	self.z_index = 5
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE) 
 	
@@ -32,6 +41,8 @@ func _on_tween_complete(player: Player, original_parent):
 	player.reparent(original_parent)
 	player.current_grid_pos = player.world.get_cell_for_global_pos(target_position)
 	player.global_position = target_position
+	player.z_index = 1
+	self.z_index = 0
 	
 	GameStates.on_ride_disc = false
 	global_position = original_position

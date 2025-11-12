@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var retry_button = $RetryButton
-@onready var score_label: Label = $ScoreLabel
+@onready var score_label: Label = $"../Score/ScoreLabel"
 
 func _ready() -> void:
 	GameStates.score_updated.connect(_on_score_updated)

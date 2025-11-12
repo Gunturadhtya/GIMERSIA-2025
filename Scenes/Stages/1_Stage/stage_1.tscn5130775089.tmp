@@ -275,10 +275,9 @@ icon_alignment = 1
 [node name="RythmManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_1bqcc")]
 player = NodePath("../Player")
 
-[node name="AbeEnemy3" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
-position = Vector2(832, 552)
+[node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
+position = Vector2(740, 111)
 world = NodePath("..")
-target_move_counter = 2
 
 [node name="AbeEnemy2" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
 position = Vector2(330, 403)

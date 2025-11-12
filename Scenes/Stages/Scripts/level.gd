@@ -6,7 +6,9 @@ class_name Level extends Node2D
 @export var game_over_menu: CanvasLayer
 @export var rythim_manager: Control
 var current_cleared_cube = 0
-var TILE_OFFSET = Vector2(0.2, 0.2)
+var target_cleared_cube = 15
+
+const TILE_OFFSET = Vector2(0.2, 0.2)
 
 func _ready() -> void:
 	GameStates.reset_game_stats()
