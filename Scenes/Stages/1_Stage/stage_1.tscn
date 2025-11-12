@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://c03yw85t8qyf2"]
+[gd_scene load_steps=36 format=4 uid="uid://c03yw85t8qyf2"]
 
 [ext_resource type="Script" uid="uid://hha50x3tkip2" path="res://Scenes/Stages/Scripts/level.gd" id="1_qwrnw"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
@@ -10,11 +10,14 @@
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scenes/Stages/Scripts/States/game_over.gd" id="8_7828x"]
 [ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scenes/Stages/Scripts/level_cleared_menu.gd" id="9_gtyqx"]
 [ext_resource type="Script" uid="uid://drw3spke2r61c" path="res://Scenes/Stages/Scripts/game_over_menu.gd" id="10_f1gwu"]
+[ext_resource type="Texture2D" uid="uid://bn2ycn6juow7f" path="res://Assets/Menu/Asset_25.png" id="11_8x5cj"]
+[ext_resource type="Texture2D" uid="uid://doa2lmuqeux4f" path="res://Assets/Menu/Asset_27.png" id="11_akl1l"]
 [ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Enemy/Abe Enemy/abe_enemy.tscn" id="11_r1t47"]
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythim/rythm_manager.tscn" id="12_1bqcc"]
 [ext_resource type="Script" uid="uid://47wo1rcc8wi5" path="res://Scripts/ScoreUI.gd" id="13_lhrxu"]
 [ext_resource type="Texture2D" uid="uid://bfyqajirycyn0" path="res://Assets/Menu/Pause_Icon.png" id="14_v2f53"]
 [ext_resource type="Texture2D" uid="uid://cwofxiij4ywav" path="res://Assets/Menu/Pause_Bg_Menu.png" id="15_hmh55"]
+[ext_resource type="Texture2D" uid="uid://lnemlcpfswv6" path="res://Assets/Menu/Asset_26.png" id="15_wqvw4"]
 [ext_resource type="Texture2D" uid="uid://c2qgma72oly7f" path="res://Assets/Menu/Bacground_text_Game_Paused.png" id="16_fyn12"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="17_rw52e"]
 [ext_resource type="Script" uid="uid://d1ow7lbaixyxk" path="res://Scenes/Stages/Scripts/AudioManager.gd" id="18_buke8"]
@@ -24,13 +27,19 @@
 [ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="21_yfk3i"]
 [ext_resource type="Texture2D" uid="uid://de6fgpqoxnfkr" path="res://Assets/Menu/Bar_Volume.png" id="22_akl1l"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_055xg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjpfr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1krj1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_akl1l"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfk3i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rw52e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_buke8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1krj1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfk3i"]
 texture = ExtResource("22_akl1l")
@@ -91,27 +100,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -15.5
-offset_right = 25.0
-offset_bottom = 15.5
+offset_left = 78.00006
+offset_top = 3.0000305
+offset_right = 140.00006
+offset_bottom = 64.00003
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.208312, 1.208312)
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 64
-text = "Retry"
-
-[node name="Label" type="Label" parent="LevelClearedMenu"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -137.5
-offset_right = 137.5
-offset_bottom = 188.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
-text = "You Won
-"
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_055xg")
+icon = ExtResource("11_akl1l")
+flat = true
+icon_alignment = 1
 
 [node name="NextButton" type="Button" parent="LevelClearedMenu"]
 anchors_preset = 8
@@ -119,15 +120,62 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = -168.0
-offset_right = 85.0
-offset_bottom = -72.0
+offset_left = -80.0
+offset_top = -21.0
+offset_right = 12.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2326714, 1.2326714)
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
-text = "Next"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjpfr")
+icon = ExtResource("11_8x5cj")
+flat = true
+icon_alignment = 1
+
+[node name="background" type="Sprite2D" parent="LevelClearedMenu"]
+z_index = -1
+position = Vector2(618.5, 348.5)
+texture = ExtResource("15_hmh55")
+
+[node name="textBackground" type="Sprite2D" parent="LevelClearedMenu"]
+position = Vector2(624, 225.5)
+texture = ExtResource("16_fyn12")
+
+[node name="Label" type="Label" parent="LevelClearedMenu/textBackground"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_top = -38.0
+offset_right = 21.0
+offset_bottom = 150.0
+grow_horizontal = 2
+scale = Vector2(0.7844014, 0.7844014)
+theme_override_font_sizes/font_size = 64
+text = "You Won
+"
+
+[node name="MenuButton" type="Button" parent="LevelClearedMenu"]
+offset_left = 453.0
+offset_top = 371.5
+offset_right = 515.0
+offset_bottom = 432.5
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("17_rw52e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1krj1")
+icon = ExtResource("15_wqvw4")
+flat = true
+icon_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="LevelClearedMenu"]
+offset_left = 562.0
+offset_top = 267.5
+offset_right = 667.0
+offset_bottom = 306.5
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
 
 [node name="GameOverMenu" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -140,27 +188,62 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -15.5
-offset_right = 25.0
-offset_bottom = 15.5
+offset_left = -78.00006
+offset_top = -15.0
+offset_right = -16.000061
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.7726254, 1.8718567)
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
-text = "Retry"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_akl1l")
+icon = ExtResource("11_akl1l")
+flat = true
 
-[node name="Label" type="Label" parent="GameOverMenu"]
+[node name="background" type="Sprite2D" parent="GameOverMenu"]
+z_index = -1
+position = Vector2(618.5, 348.5)
+texture = ExtResource("15_hmh55")
+
+[node name="textBackground" type="Sprite2D" parent="GameOverMenu"]
+position = Vector2(629, 226)
+texture = ExtResource("16_fyn12")
+
+[node name="Label" type="Label" parent="GameOverMenu/textBackground"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -138.0
-offset_right = 138.0
-offset_bottom = 179.0
+offset_left = -245.0
+offset_top = -34.0
+offset_right = 31.0
+offset_bottom = 145.0
 grow_horizontal = 2
+scale = Vector2(0.7199453, 0.7199453)
 theme_override_font_sizes/font_size = 64
 text = "You Lose
 "
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="GameOverMenu"]
+offset_left = 567.0
+offset_top = 268.0
+offset_right = 672.0
+offset_bottom = 307.0
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+
+[node name="MenuButton" type="Button" parent="GameOverMenu"]
+offset_left = 458.0
+offset_top = 372.0
+offset_right = 520.0
+offset_bottom = 433.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("17_rw52e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1krj1")
+icon = ExtResource("15_wqvw4")
+flat = true
+icon_alignment = 1
 
 [node name="RythmManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_1bqcc")]
 player = NodePath("../Player")
@@ -327,6 +410,8 @@ theme_override_styles/slider = SubResource("StyleBoxTexture_akl1l")
 max_value = 1.0
 step = 0.01
 
+[connection signal="pressed" from="LevelClearedMenu/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="GameOverMenu/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="PausedMenu/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PausedMenu/CanvasLayer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PausedMenu/CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
