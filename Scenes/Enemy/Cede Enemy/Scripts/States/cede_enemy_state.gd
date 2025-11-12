@@ -6,6 +6,8 @@ const HOPPING = "Hopping"
 const LANDING = "Landing"
 const FALLING = "Falling"
 
+const DEFAULT_SCALE = Vector2(0.2, 0.2)
+
 var cede: Cede
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

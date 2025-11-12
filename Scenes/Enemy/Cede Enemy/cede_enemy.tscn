@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://3lfqcf0p51yk"]
 
 [ext_resource type="Script" uid="uid://c28gnhrtf0um" path="res://Scenes/Enemy/Cede Enemy/Scripts/cede_enemy.gd" id="1_ou8ch"]
-[ext_resource type="Texture2D" uid="uid://el8xb3lwdvqk" path="res://icon.svg" id="2_00r8d"]
+[ext_resource type="Texture2D" uid="uid://duv7iohj2h1lx" path="res://Assets/cd.png" id="2_00r8d"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="2_1k7i7"]
 [ext_resource type="Script" uid="uid://bvfsrs0ihp335" path="res://Scenes/Enemy/Cede Enemy/Scripts/States/idle.gd" id="4_xkore"]
 [ext_resource type="Script" uid="uid://djj2xxd5ik113" path="res://Scenes/Enemy/Cede Enemy/Scripts/States/hopping.gd" id="5_83yd3"]
@@ -16,10 +16,11 @@ radius = 26.076809
 script = ExtResource("1_ou8ch")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.6300764, 0.08198396, 0.6348796, 1)
-position = Vector2(-1, -35)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-3, -52.000008)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_00r8d")
+hframes = 4
+vframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -29)

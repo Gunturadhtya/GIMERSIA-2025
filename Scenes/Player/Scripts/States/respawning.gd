@@ -7,7 +7,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 		respawing_tween.kill()
 	
 	_on_respawning()
-	
+
 func _on_respawning():
 	player.current_grid_pos = player.world.get_spawn_pos()
 	player.global_position = player.world.get_screen_pos_for_cell(player.current_grid_pos)

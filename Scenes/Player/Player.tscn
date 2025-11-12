@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bkd2van6gammi"]
+[gd_scene load_steps=23 format=3 uid="uid://bkd2van6gammi"]
 
 [ext_resource type="Script" uid="uid://c02yytw51mm1q" path="res://Scenes/Player/Scripts/player.gd" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://buh727b76yvah" path="res://Assets/Player.png" id="2_825xp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bsw0bfyxd6vob" path="res://Scenes/Player/Scripts/States/falling.gd" id="7_t26db"]
 [ext_resource type="Script" uid="uid://bhnmqur0gigqc" path="res://Scenes/Player/Scripts/States/dead.gd" id="8_825xp"]
 [ext_resource type="Script" uid="uid://cy0ocl2wy3syl" path="res://Scenes/Player/Scripts/States/respawning.gd" id="9_ji083"]
+[ext_resource type="Script" uid="uid://curds5ifrpw74" path="res://Scenes/Player/Scripts/States/on_disc.gd" id="10_ji083"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h54ih"]
 radius = 23.086792
@@ -280,6 +281,9 @@ _data = {
 &"idle_up": SubResource("Animation_esmjy")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_825xp"]
+radius = 22.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ft8w5")
 
@@ -290,7 +294,9 @@ texture = ExtResource("2_825xp")
 hframes = 4
 vframes = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, -25)
 shape = SubResource("CircleShape2D_h54ih")
 
@@ -316,7 +322,14 @@ script = ExtResource("8_825xp")
 [node name="Respawning" type="Node" parent="StateMachine"]
 script = ExtResource("9_ji083")
 
+[node name="OnDisc" type="Node" parent="StateMachine"]
+script = ExtResource("10_ji083")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_0u84n")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -25)
+shape = SubResource("CircleShape2D_825xp")

@@ -6,10 +6,12 @@ const LANDING = "Landing"
 const FALLING = "Falling"
 const DEAD = "Dead"
 const RESPAWNING = "Respawning"
+const ON_DISC = "OnDisc"
 
 const DEFAULT_SCALE: Vector2 = Vector2(0.2, 0.2)
 
 var player: Player
+var disc_node
 
 func _ready() -> void:
 	await owner.ready
