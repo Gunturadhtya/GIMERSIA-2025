@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://co1arptro4wbk"]
+
+[ext_resource type="Texture2D" uid="uid://d3fecxfi6qdfs" path="res://Assets/Menu/Title_Main_Menu_1.png" id="1_aaagy"]
+[ext_resource type="Script" uid="uid://cp3l3muckag3y" path="res://Scenes/Stages/Scripts/main_menu.gd" id="1_vys5n"]
+[ext_resource type="Texture2D" uid="uid://2n80vopu5jw1" path="res://Assets/Menu/Bacgkround_Main_Menu.png" id="2_0ycek"]
+[ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="3_1dch1"]
+[ext_resource type="Texture2D" uid="uid://cxikslb53m3q8" path="res://Assets/Menu/Indikator_Left.png" id="5_svkjr"]
+[ext_resource type="Script" uid="uid://pkxbsbgdyifc" path="res://Scenes/Stages/Scripts/start_button.gd" id="5_tbjnp"]
+[ext_resource type="Texture2D" uid="uid://bkg65yfm2wn6x" path="res://Assets/Menu/Indikator_RIght.png" id="6_tbjnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vys5n"]
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vys5n")
+
+[node name="Title" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 203.00002
+offset_top = -97.00001
+offset_right = 2163.0
+offset_bottom = 1197.0
+scale = Vector2(0.45843145, 0.4442283)
+texture = ExtResource("1_aaagy")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.62365586, 0.62365586)
+texture = ExtResource("2_0ycek")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 416.0
+offset_right = 620.0
+offset_bottom = 456.0
+scale = Vector2(2.9899166, 2.9899166)
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_1dch1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vys5n")
+toggle_mode = true
+flat = true
+icon_alignment = 1
+script = ExtResource("5_tbjnp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/StartButton"]
+layout_mode = 0
+offset_left = -31.104548
+offset_top = -24.361433
+offset_right = 111.895454
+offset_bottom = 31.638567
+alignment = 1
+
+[node name="LeftIcon" type="TextureRect" parent="VBoxContainer/StartButton/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("5_svkjr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/StartButton/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1dch1")
+text = "Start Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightIcon" type="TextureRect" parent="VBoxContainer/StartButton/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+texture = ExtResource("6_tbjnp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_1dch1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vys5n")
+toggle_mode = true
+flat = true
+icon_alignment = 1
+script = ExtResource("5_tbjnp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/QuitButton"]
+layout_mode = 0
+offset_left = -31.104548
+offset_top = -17.391788
+offset_right = 111.895454
+offset_bottom = 38.60821
+alignment = 1
+
+[node name="LeftIcon" type="TextureRect" parent="VBoxContainer/QuitButton/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("5_svkjr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/QuitButton/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1dch1")
+text = "Quit"
+
+[node name="RightIcon" type="TextureRect" parent="VBoxContainer/QuitButton/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+texture = ExtResource("6_tbjnp")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
