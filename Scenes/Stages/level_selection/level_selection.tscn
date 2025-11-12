@@ -1,0 +1,196 @@
+[gd_scene load_steps=7 format=3 uid="uid://5bnw4logfsd2"]
+
+[ext_resource type="Script" uid="uid://cy1ogfes0820g" path="res://Scenes/Stages/Scripts/level_selection.gd" id="1_8xar1"]
+[ext_resource type="Texture2D" uid="uid://2n80vopu5jw1" path="res://Assets/Menu/Bacgkround_Main_Menu.png" id="2_tcw1j"]
+[ext_resource type="Texture2D" uid="uid://bqy5shoby8sow" path="res://Assets/Menu/Level_Not_Clear.png" id="2_wrvio"]
+[ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="3_tcw1j"]
+[ext_resource type="Texture2D" uid="uid://clg45uqrdb0ge" path="res://Assets/Menu/Level_Clear.png" id="4_tq4a2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tq4a2"]
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8xar1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.62365586, 0.62365586)
+texture = ExtResource("2_tcw1j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 247.0
+offset_right = 1090.0
+offset_bottom = 755.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Stage1" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wrvio")
+texture_disabled = ExtResource("4_tq4a2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage1"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 136.0
+offset_bottom = 86.0
+scale = Vector2(2.5837834, 2.4974613)
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stage2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wrvio")
+texture_disabled = ExtResource("4_tq4a2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 136.0
+offset_bottom = 86.0
+scale = Vector2(2.5837834, 2.4974613)
+theme_override_font_sizes/font_size = 32
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stage3" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wrvio")
+texture_disabled = ExtResource("4_tq4a2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 136.0
+offset_bottom = 86.0
+scale = Vector2(2.5837834, 2.4974613)
+theme_override_font_sizes/font_size = 32
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Stage4" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wrvio")
+texture_disabled = ExtResource("4_tq4a2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage4"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 136.0
+offset_bottom = 86.0
+scale = Vector2(2.5837834, 2.4974613)
+theme_override_font_sizes/font_size = 32
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stage5" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wrvio")
+texture_disabled = ExtResource("4_tq4a2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage5"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 136.0
+offset_bottom = 86.0
+scale = Vector2(2.5837834, 2.4974613)
+theme_override_font_sizes/font_size = 32
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stage6" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wrvio")
+texture_disabled = ExtResource("4_tq4a2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage6"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 136.0
+offset_bottom = 86.0
+scale = Vector2(2.5837834, 2.4974613)
+theme_override_font_sizes/font_size = 32
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 81.0
+offset_right = 740.0
+offset_bottom = 146.0
+scale = Vector2(1.3834422, 1.3834422)
+theme_override_fonts/font = ExtResource("3_tcw1j")
+theme_override_font_sizes/font_size = 64
+text = "Stage Selection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 652.0
+offset_right = 120.0
+offset_bottom = 693.0
+scale = Vector2(1.1768862, 1.1768862)
+theme_override_fonts/font = ExtResource("3_tcw1j")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tq4a2")
+text = "back"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage1" to="." method="_on_stage_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage2" to="." method="_on_stage_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage3" to="." method="_on_stage_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage4" to="." method="_on_stage_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage5" to="." method="_on_stage_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage6" to="." method="_on_stage_6_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

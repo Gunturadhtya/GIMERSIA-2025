@@ -113,6 +113,22 @@ theme_override_font_sizes/font_size = 64
 text = "You Won
 "
 
+[node name="NextButton" type="Button" parent="LevelClearedMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -168.0
+offset_right = 85.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Next"
+
 [node name="GameOverMenu" type="CanvasLayer" parent="."]
 process_mode = 3
 visible = false
