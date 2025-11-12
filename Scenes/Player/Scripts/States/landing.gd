@@ -3,6 +3,13 @@ extends PlayerState
 func enter(previous_state_path: String, data := {}) -> void:
 	player.is_hopping = false
 	player.current_grid_pos = data["target_grid_pos"]
+	var overlapping_areas = player.hitbox.get_overlapping_areas()
+	
+	for area in overlapping_areas:
+		if area.is_in_group("disc"):
+			finished.emit(ON_DISC, {"disc":area.get_parent()})
+			return
+	
 	print(player.current_grid_pos)
 	if _is_valid_cell(player.current_grid_pos):
 		if _is_on_enemy_tile(player.current_grid_pos):

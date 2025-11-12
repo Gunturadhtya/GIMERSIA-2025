@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://54msct5mm3np"]
+
+[ext_resource type="Script" uid="uid://bvi52wdd26dih" path="res://Scenes/Cube/Floating Disc/Script/floating_disc.gd" id="1_6mhe8"]
+[ext_resource type="Texture2D" uid="uid://hsxsu84anpng" path="res://Assets/Stage_1_Block_Melayang.png" id="1_dc313"]
+
+[node name="FloatingDisc" type="Node2D" groups=["disc"]]
+script = ExtResource("1_6mhe8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dc313")
+hframes = 4
+
+[node name="Area2D" type="Area2D" parent="." groups=["disc"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-20, -23, 0, 3, 21, -23, 0, -51)

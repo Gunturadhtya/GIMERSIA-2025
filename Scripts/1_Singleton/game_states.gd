@@ -6,6 +6,7 @@ var game_over: bool = false
 var score: int = 0
 var multiplier: int = 1
 var consecutive_jumps: int = 0
+var on_ride_disc: bool = false
 
 signal game
 signal score_updated(new_score)

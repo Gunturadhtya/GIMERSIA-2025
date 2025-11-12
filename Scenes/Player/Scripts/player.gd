@@ -11,6 +11,7 @@ var is_hopping: bool = false
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine = $StateMachine
+@onready var hitbox: Area2D = $Hitbox
 
 func _ready():
 	current_grid_pos = world.get_spawn_pos()
