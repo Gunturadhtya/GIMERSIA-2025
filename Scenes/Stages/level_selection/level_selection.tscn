@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://5bnw4logfsd2"]
+[gd_scene load_steps=8 format=3 uid="uid://5bnw4logfsd2"]
 
 [ext_resource type="Script" uid="uid://cy1ogfes0820g" path="res://Scenes/Stages/Scripts/level_selection.gd" id="1_8xar1"]
 [ext_resource type="Texture2D" uid="uid://2n80vopu5jw1" path="res://Assets/Menu/Bacgkround_Main_Menu.png" id="2_tcw1j"]
 [ext_resource type="Texture2D" uid="uid://bqy5shoby8sow" path="res://Assets/Menu/Level_Not_Clear.png" id="2_wrvio"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="3_tcw1j"]
 [ext_resource type="Texture2D" uid="uid://clg45uqrdb0ge" path="res://Assets/Menu/Level_Clear.png" id="4_tq4a2"]
+[ext_resource type="Texture2D" uid="uid://kv5sw07rfop7" path="res://Assets/Menu/Icon_Back_Stage_Level_.png" id="6_w142l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tq4a2"]
 
@@ -176,16 +177,17 @@ vertical_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 652.0
-offset_right = 120.0
-offset_bottom = 693.0
-scale = Vector2(1.1768862, 1.1768862)
+offset_left = 81.0
+offset_top = 63.0
+offset_right = 204.0
+offset_bottom = 186.0
+scale = Vector2(0.83763057, 0.83763057)
 theme_override_fonts/font = ExtResource("3_tcw1j")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tq4a2")
-text = "back"
+icon = ExtResource("6_w142l")
 flat = true
+icon_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage1" to="." method="_on_stage_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage2" to="." method="_on_stage_2_pressed"]

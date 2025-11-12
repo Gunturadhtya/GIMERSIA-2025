@@ -1,7 +1,7 @@
 extends VBoxContainer
 
-@onready var music_slider: HSlider = $HBoxContainer/MusicSlider
-@onready var sfx_slider: HSlider = $HBoxContainer2/SfxSlider
+@onready var music_slider: HSlider = $HBoxContainer2/MusicSlider
+@onready var sfx_slider: HSlider = $HBoxContainer/SfxSlider
 
 var music_bus_index: int
 var sfx_bus_index: int
