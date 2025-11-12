@@ -57,3 +57,18 @@ func _on_level_cleared_retry_pressed():
 
 func _on_game_over_retry_pressed():
 	get_tree().reload_current_scene()
+
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = true
+	$PausedMenu/PauseButton.visible = false
+	$PausedMenu/CanvasLayer.visible = true
+
+
+func _on_resume_button_pressed() -> void:
+	get_tree().paused = false
+	$PausedMenu/PauseButton.visible = true
+	$PausedMenu/CanvasLayer.visible = false
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit(0)
