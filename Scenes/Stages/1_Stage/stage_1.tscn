@@ -55,8 +55,12 @@ level_cleared_menu = NodePath("LevelClearedMenu")
 game_over_menu = NodePath("GameOverMenu")
 rythim_manager = NodePath("RythmManager")
 
-[node name="FloatingDisc" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(252, 540)
+[node name="FloatingDisc1" parent="." instance=ExtResource("2_akl1l")]
+position = Vector2(256, 588)
+target_marker = NodePath("../Marker2D")
+
+[node name="FloatingDisc2" parent="." instance=ExtResource("2_akl1l")]
+position = Vector2(974, 586)
 target_marker = NodePath("../Marker2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -333,7 +337,7 @@ max_value = 1.0
 step = 0.01
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(612, 122)
+position = Vector2(612, 149)
 
 [connection signal="pressed" from="PausedMenu/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PausedMenu/CanvasLayer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

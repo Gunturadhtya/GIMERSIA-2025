@@ -20,9 +20,6 @@ func enter(previous_state_path: String, data := {}) -> void:
 	else:
 		finished.emit(FALLING)
 
-func _process(delta: float) -> void:
-	pass
-
 func _is_valid_cell(grid_pos: Vector2i) -> bool:
 	return player.world.tilemap_layer.get_cell_source_id(Vector2i(grid_pos.x, grid_pos.y)) != -1
 

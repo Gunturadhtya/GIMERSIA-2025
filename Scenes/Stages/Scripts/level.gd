@@ -15,9 +15,13 @@ func _ready() -> void:
 	game_over_menu.retry_button.connect("pressed", _on_game_over_retry_pressed)
 	print(get_screen_pos_for_cell(get_spawn_pos()))
 	
-
 func get_screen_pos_for_cell(grid_pos: Vector2i) -> Vector2:
 	return tilemap_layer.map_to_local(grid_pos) * TILE_OFFSET
+
+func get_cell_for_global_pos(global_pos: Vector2) -> Vector2i:
+	var local_pos = tilemap_layer.to_local(global_pos)
+	
+	return tilemap_layer.local_to_map(local_pos)
 
 func get_spawn_pos() -> Vector2i:
 	return Vector2i(5, 6)

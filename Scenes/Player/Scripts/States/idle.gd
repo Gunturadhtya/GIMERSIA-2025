@@ -16,9 +16,6 @@ func enter(previous_state_path: String, data := {}) -> void:
 	if player.input_buffer != Vector2i.ZERO:
 		finished.emit(HOPPING)
 
-func _process(delta: float) -> void:
-	pass
-
 func handle_input(_event: InputEvent) -> void:
 	var move_dir = Vector2i.ZERO
 	

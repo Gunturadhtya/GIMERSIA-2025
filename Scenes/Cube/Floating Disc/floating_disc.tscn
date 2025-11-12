@@ -14,4 +14,5 @@ hframes = 4
 [node name="Area2D" type="Area2D" parent="." groups=["disc"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-51, -23, 0, 3, 51, -23, 0, -51)
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-20, -23, 0, 3, 21, -23, 0, -51)

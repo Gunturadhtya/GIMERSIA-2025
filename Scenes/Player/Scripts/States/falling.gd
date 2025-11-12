@@ -8,9 +8,6 @@ func enter(previous_state_path: String, data := {}) -> void:
 	
 	_start_falling()
 
-func _process(delta: float) -> void:
-	pass
-
 func _start_falling():
 	falling_tween = player.create_tween()
 

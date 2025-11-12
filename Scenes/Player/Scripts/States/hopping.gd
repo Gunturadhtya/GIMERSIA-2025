@@ -26,9 +26,6 @@ func enter(previous_state_path: String, data := {}) -> void:
 	else:
 		finished.emit(IDLE, {"next_move" : Vector2i.ZERO})
 
-func _process(delta: float) -> void:
-	pass
-
 func handle_input(_event: InputEvent) -> void:
 	var move_dir = Vector2i.ZERO
 	
