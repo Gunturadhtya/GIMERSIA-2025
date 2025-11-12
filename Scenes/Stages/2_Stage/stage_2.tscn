@@ -1,10 +1,11 @@
-[gd_scene load_steps=39 format=4 uid="uid://rw5ak8hsavi4"]
+[gd_scene load_steps=41 format=4 uid="uid://rw5ak8hsavi4"]
 
 [ext_resource type="Script" uid="uid://dgtfth0ejig1m" path="res://Scenes/Stages/2_Stage/stage_2.gd" id="1_ds88h"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_akl1l"]
+[ext_resource type="Texture2D" uid="uid://c02xwq81cf5g0" path="res://Assets/Background_2.png" id="2_ds88h"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
-[ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/background_3.png" id="2_vbrga"]
+[ext_resource type="Texture2D" uid="uid://cqkb56u4mbp1k" path="res://Assets/Stage_2_Fly_Block.png" id="4_2m653"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="4_n86wx"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scenes/Stages/Scripts/States/ready.gd" id="5_nceub"]
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="6_7828x"]
@@ -29,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="21_yfk3i"]
 [ext_resource type="Texture2D" uid="uid://de6fgpqoxnfkr" path="res://Assets/Menu/Bar_Volume.png" id="22_akl1l"]
 [ext_resource type="PackedScene" uid="uid://do3tung4um34e" path="res://Scenes/Stages/1_Stage/stage1music.tscn" id="28_sjpfr"]
+[ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Enemy/Cede Enemy/cede_enemy.tscn" id="31_rqmrp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_055xg"]
 
@@ -79,20 +81,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vbrga")
-
-[node name="FloatingDisc1" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(578, 486)
-target_marker = NodePath("../Marker2D")
+texture = ExtResource("2_ds88h")
 
 [node name="FloatingDisc2" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(680, 485)
+position = Vector2(678, 483)
 target_marker = NodePath("../Marker2D")
+sprite_texture = ExtResource("4_2m653")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(115.99999, -33.999996)
 scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AAADAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAACAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAABAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAcAAAAAAAAAAAACAAYAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAYAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAYAAAAAAAAAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAsAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAgAAAAAAAAAAAACAAkAAAAAAAAAAAD//wYAAAAAAAAAAAD+/wUAAAAAAAAAAAD9/wQAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAwAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wYAAAAAAAAAAAD//wcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAkAAAAAAAAAAAACAAoAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAwAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAkAAQAAAAAAAAACAAoAAQAAAAAAAAADAAgAAQAAAAAAAAADAAkAAQAAAAAAAAADAAoAAQAAAAAAAAADAAsAAQAAAAAAAAAEAAgAAQAAAAAAAAAEAAkAAQAAAAAAAAAEAAoAAQAAAAAAAAAEAAsAAQAAAAAAAAAFAAgAAQAAAAAAAAAFAAkAAQAAAAAAAAAFAAoAAQAAAAAAAAAFAAsAAQAAAAAAAAD9/wQAAQAAAAAAAAD9/wUAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wUAAQAAAAAAAAD+/wYAAQAAAAAAAAD//wQAAQAAAAAAAAD//wUAAQAAAAAAAAD//wYAAQAAAAAAAAD//wcAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAA=")
 tile_set = ExtResource("2_f1gwu")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("2_0j8e6")]
@@ -276,6 +275,7 @@ icon_alignment = 1
 player = NodePath("../Player")
 
 [node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
+position = Vector2(422, 551)
 world = NodePath("..")
 
 [node name="Score" type="CanvasLayer" parent="."]
@@ -441,6 +441,15 @@ step = 0.01
 position = Vector2(625, 121)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("28_sjpfr")]
+
+[node name="CedeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("31_rqmrp")]
+position = Vector2(834, 400)
+world = NodePath("..")
+
+[node name="CedeEnemy2" parent="." node_paths=PackedStringArray("world") instance=ExtResource("31_rqmrp")]
+position = Vector2(365, 337)
+world = NodePath("..")
+target_move_counter = 8
 
 [connection signal="pressed" from="PausedMenu/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PausedMenu/CanvasLayer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

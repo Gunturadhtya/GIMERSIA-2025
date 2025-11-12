@@ -448,13 +448,13 @@ position = Vector2(677, 468)
 
 [node name="AbeEnemy3" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("29_ttf55")]
 position = Vector2(931, 522)
-world = NodePath("")
-target_move_counter = 2
+world = NodePath("..")
+target_move_counter = 4
 
 [node name="AbeEnemy2" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("29_ttf55")]
 position = Vector2(318, 380)
-world = NodePath("")
-target_move_counter = 2
+world = NodePath("..")
+target_move_counter = 6
 
 [connection signal="pressed" from="PausedMenu/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PausedMenu/CanvasLayer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

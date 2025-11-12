@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://rvugrpb2do7a"]
+[gd_scene load_steps=41 format=4 uid="uid://rvugrpb2do7a"]
 
 [ext_resource type="Script" uid="uid://dp4p1pfyytqbk" path="res://Scenes/Stages/2_Tutorial/tutorial_2.gd" id="1_rbfgl"]
 [ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/background_3.png" id="2_66qgx"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://de6fgpqoxnfkr" path="res://Assets/Menu/Bar_Volume.png" id="25_g8j46"]
 [ext_resource type="Texture2D" uid="uid://cixayqhfxd7tp" path="res://Assets/Menu/Icon_Music.png" id="26_ul4vm"]
 [ext_resource type="PackedScene" uid="uid://do3tung4um34e" path="res://Scenes/Stages/1_Stage/stage1music.tscn" id="27_sjjsy"]
+[ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Enemy/Cede Enemy/cede_enemy.tscn" id="29_s8rqo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsdeq"]
 
@@ -437,6 +438,10 @@ step = 0.01
 position = Vector2(303, 385)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("27_sjjsy")]
+
+[node name="CedeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("29_s8rqo")]
+position = Vector2(559, 460)
+world = NodePath("..")
 
 [connection signal="pressed" from="PausedMenu/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PausedMenu/CanvasLayer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

@@ -2,13 +2,20 @@ extends Node2D
 
 signal ride_finished(final_world_position)
 
+@onready var cube_sprite = $Sprite2D
+
 @export var target_marker: NodePath
+@export var sprite_texture: Texture2D
 
 var target_position: Vector2
 var original_position: Vector2
 
+
 func _ready():
 	original_position = global_position
+	
+	if sprite_texture != null:
+		cube_sprite.texture = sprite_texture
 	
 	if not target_marker.is_empty():
 		target_position = get_node(target_marker).global_position
