@@ -54,6 +54,8 @@ func handle_input(_event: InputEvent) -> void:
 func _start_hop(target_grid_pos: Vector2i):
 	player.is_hopping = true
 	
+	AudioAutoloader.playPlayerJumpSound()
+	
 	player.last_song_pos = player.conductor.song_position_in_beats
 	
 	var target_screen_pos = player.world.get_screen_pos_for_cell(target_grid_pos)

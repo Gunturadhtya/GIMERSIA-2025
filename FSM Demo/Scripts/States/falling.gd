@@ -18,4 +18,4 @@ func _check_enemy_collision() -> void:
 	if collision:
 		var collider = collision.get_collider()
 		if collider and collider.is_in_group("Enemies"):
-			GameStates.reset_multiplier()
+			pass

@@ -11,19 +11,31 @@ class_name Stage extends Node2D
 @export var target_cleared_cube: int = 15
 
 @export_group("Star Threshold")
-@export var star_1_threshold: int
-@export var star_2_threshold: int
-@export var star_3_threshold: int
+@export var star_2_threshold: int = 0
+@export var star_3_threshold: int = 0
 
 var current_cleared_cube = 0
+var star_thresholds: Dictionary[int, int]
 
 const TILE_OFFSET = Vector2(1, 1)
 
 func _ready() -> void:
-	GameStates.reset_game_stats()
+	
 	get_tree().paused = false	
 	#print(get_screen_pos_for_cell(get_spawn_pos()))
 	conductor.load_map(beat_map)
+	
+	# Dict to store star threshold
+	if star_2_threshold == 0 and star_3_threshold == 0:
+		star_thresholds = {
+			3: round(target_cleared_cube * 1.3),
+			2: round(target_cleared_cube * 1.7)
+		}
+	else:
+		star_thresholds = {
+			3: star_3_threshold,
+			2: star_2_threshold
+		}
 	
 func get_screen_pos_for_cell(grid_pos: Vector2i) -> Vector2:
 	return tilemap_layer.map_to_local(grid_pos) * TILE_OFFSET
@@ -52,21 +64,19 @@ func on_player_landed(grid_pos: Vector2i):
 			current_index += 1
 		GameStates.Match.MISS:
 			if current_index == 2: # If Lit up
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,2))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,2))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,2))
+				return
+				
+			elif current_index == 1: # If Half Lit Up
 				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
 				await get_tree().create_timer(0.05).timeout
 				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
 				await get_tree().create_timer(0.05).timeout
 				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
-				return
-				
-			elif current_index == 1: # If Half Lit Up
-				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-				await get_tree().create_timer(0.03).timeout
-				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
-				await get_tree().create_timer(0.03).timeout
-				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
-				await get_tree().create_timer(0.03).timeout
-				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
 				return
 				
 			else: # If not lit up
@@ -84,31 +94,40 @@ func on_player_landed(grid_pos: Vector2i):
 	if current_index == 1:
 		#GameStates.add_score()
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-		await get_tree().create_timer(0.03).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
-		await get_tree().create_timer(0.03).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
-		await get_tree().create_timer(0.03).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-		return
-	
-	## If OK and the Cube are half lit or PERFECT and the cube are not lit or PERFECT and the cube are half lit
-	if current_index == 2 or (current_index == 3 and player.current_match == GameStates.Match.PERFECT):
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
-		current_cleared_cube += 1
 		return
 	
-	# If the cube already lit up
-	if current_index > target_index:
+	## If OK or PERFECT and the Cube are half lit
+	if (current_index == 2 and player.current_match == GameStates.Match.OK) or \
+	(current_index == 3 and player.current_match == GameStates.Match.PERFECT):
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
 		await get_tree().create_timer(0.05).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,2))
+		current_cleared_cube += 1
+		return
+	
+	## If PERFECT and the Cube are not lit
+	if current_index == 2 and player.current_match == GameStates.Match.PERFECT:
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+		await get_tree().create_timer(0.05).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
+		await get_tree().create_timer(0.05).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,2))
+		current_cleared_cube += 1
+		return
+	
+	## If the cube already lit up
+	if current_index > target_index:
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,2))
+		await get_tree().create_timer(0.05).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,2))
+		await get_tree().create_timer(0.05).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,2))
 		return
 
 func is_tile_walkable(grid_pos: Vector2i) -> bool:
@@ -120,12 +139,8 @@ func is_tile_walkable(grid_pos: Vector2i) -> bool:
 func show_grade():
 	player.has_moved = false
 	
-	# Dict to store star threshold
-	var star_thresholds = {
-		3: star_1_threshold,
-		2: star_2_threshold,
-		1: star_3_threshold
-	}
+	
+	
 	
 	# Launching the star calculation method 
 	if level_cleared_menu.has_method("setup_grade"):

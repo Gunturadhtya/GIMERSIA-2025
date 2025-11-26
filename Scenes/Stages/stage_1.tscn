@@ -12,15 +12,15 @@
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scripts/2_State/Stage/game_over.gd" id="11_sujac"]
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythm/rythm_ui.tscn" id="12_22sso"]
 [ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythm/rythm_note.tscn" id="13_euq63"]
-[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Entity/abe_enemy.tscn" id="14_nfpxi"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared_menu.tscn" id="16_q05fk"]
 [ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over_menu.tscn" id="17_2fsv8"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="17_elwkq"]
 [ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/paused_menu.tscn" id="18_6c63l"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="19_56f2l"]
 
 [node name="Stage1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager", "conductor")]
 script = ExtResource("1_a3nje")
-_spawn_pos = Vector2(4, 8)
+_spawn_pos = Vector2(2, 5)
 tilemap_layer = NodePath("TileMapLayer")
 player = NodePath("Player")
 level_cleared_menu = NodePath("LevelClearedMenu")
@@ -28,7 +28,32 @@ game_over_menu = NodePath("GameOverMenu")
 rythim_manager = NodePath("RythmManager")
 conductor = NodePath("Conductor")
 beat_map = ExtResource("2_2j2vi")
-target_cleared_cube = 46
+target_cleared_cube = 12
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 834.0
+offset_top = 159.0
+offset_right = 1128.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("17_elwkq")
+theme_override_font_sizes/font_size = 26
+text = "Try moving using WASD 
+or Arrow Keyboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 810.0
+offset_top = 261.0
+offset_right = 1169.0
+offset_bottom = 328.0
+theme_override_fonts/font = ExtResource("17_elwkq")
+theme_override_font_sizes/font_size = 26
+text = "Lit up all the cube to progress"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -41,21 +66,21 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -678.0
-offset_top = -750.0
-offset_right = 650.0
-offset_bottom = 946.0
+offset_left = -301.0
+offset_top = -199.0
+offset_right = 322.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_tecur")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD2/w8ABgAAAAAAAAD3/w0ABgAAAAAAAAD3/xAABgAAAAAAAAD4/w4ABgAAAAAAAAD4/xEABgAAAAAAAAD5/wwABgAAAAAAAAD5/w8ABgAAAAAAAAD5/xIABgAAAAAAAAD6/w0ABgAAAAAAAAD6/xAABgAAAAAAAAD6/xMABgAAAAAAAAD7/wsABgAAAAAAAAD7/w4ABgAAAAAAAAD7/xEABgAAAAAAAAD7/xQABgAAAAAAAAD8/wwABgAAAAAAAAD8/xIABgAAAAAAAAD8/xUABgAAAAAAAAD9/woABgAAAAAAAAD9/w0ABgAAAAAAAAD9/xMABgAAAAAAAAD9/xYABgAAAAAAAAD+/wsABgAAAAAAAAD+/w4ABgAAAAAAAAD+/xEABgAAAAAAAAD+/xQABgAAAAAAAAD//wkABgAAAAAAAAD//wwABgAAAAAAAAD//w8ABgAAAAAAAAD//xIABgAAAAAAAAD//xUABgAAAAAAAAAAAAoABgAAAAAAAAAAAA0ABgAAAAAAAAAAABAABgAAAAAAAAAAABMABgAAAAAAAAABAAgABgAAAAAAAAABAAsABgAAAAAAAAABAA4ABgAAAAAAAAABABEABgAAAAAAAAACAAkABgAAAAAAAAACAAwABgAAAAAAAAACAA8ABgAAAAAAAAADAAcABgAAAAAAAAADAAoABgAAAAAAAAADAA0ABgAAAAAAAAAEAAsABgAAAAAAAAAFAAkABgAAAAAAAAAEAAgABgAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAAcABgAAAAAAAAAAAAkABgAAAAAAAAD//wsABgAAAAAAAAD+/w0ABgAAAAAAAAD9/w8ABgAAAAAAAAD8/xEABgAAAAAAAAD//wgABgAAAAAAAAD+/woABgAAAAAAAAD9/wwABgAAAAAAAAD8/w4ABgAAAAAAAAD7/xAABgAAAAAAAAD6/xIABgAAAAAAAAACAAUABgAAAAIAAAA=")
 tile_set = ExtResource("5_igpd1")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world", "conductor") instance=ExtResource("6_frccm")]
 z_index = 1
-position = Vector2(648, 123)
+position = Vector2(402, 104)
 world = NodePath("..")
 conductor = NodePath("../Conductor")
 
@@ -80,16 +105,6 @@ conductor = NodePath("../Conductor")
 player = NodePath("../Player")
 note_scene = ExtResource("13_euq63")
 
-[node name="AbeEnemy3" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("14_nfpxi")]
-position = Vector2(847, 559)
-world = NodePath("..")
-target_move_counter = 2
-
-[node name="AbeEnemy2" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("14_nfpxi")]
-position = Vector2(347, 410)
-world = NodePath("..")
-target_move_counter = 2
-
 [node name="LevelClearedMenu" parent="." instance=ExtResource("16_q05fk")]
 
 [node name="GameOverMenu" parent="." instance=ExtResource("17_2fsv8")]
@@ -101,3 +116,4 @@ player = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(651, 357)
+zoom = Vector2(0.7, 0.7)

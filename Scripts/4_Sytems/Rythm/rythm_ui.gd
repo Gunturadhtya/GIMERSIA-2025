@@ -2,6 +2,11 @@ extends CanvasLayer
 
 enum Match {PERFECT, OK, MISS}
 
+var NORMAL_CIRCLE = load("res://Assets/UI/rythm/circle.png")
+var MISS_CIRCLE = load("res://Assets/UI/rythm/circle_miss.png")
+var OK_CIRCLE = load("res://Assets/UI/rythm/circle_ok.png")
+var PERFECT_CIRCLE = load("res://Assets/UI/rythm/circle_perfect.png")
+
 @export var conductor: Node 
 @export var player: Player
 @export var note_scene: PackedScene
@@ -22,6 +27,9 @@ var last_processed_beat: int = -1
 @onready var right_timing_window = $RTimingWindowIndicator
 
 @onready var beat_label: Label = $BeatLabel
+@onready var beat_num_label: Label = $BeatNumLabel
+
+@onready var star_container: HBoxContainer = $StarContainer
 
 func _ready() -> void:
 	if conductor:
@@ -46,6 +54,14 @@ func _process(_delta: float) -> void:
 	#left_progress_bar.value = time_left_visual
 	#right_progress_bar.value = time_left_visual #uncomment this if you want progress bar
 	
+	beat_num_label.set_text("%d/256"%[GameStates.game_turn])
+	
+	if GameStates.game_turn > get_parent().star_thresholds.get(3, 0):
+		star_container.get_child(0).visible = false
+	
+	if GameStates.game_turn > get_parent().star_thresholds.get(2, 0):
+		star_container.get_child(1).visible = false
+	
 	if player.is_hopping and player.last_hop_beat != last_processed_beat:
 		_validate_player_hit()
 	
@@ -62,19 +78,22 @@ func _validate_player_hit():
 
 	if diff_seconds <= 0.1: 
 		AudioAutoloader.playPerfectSound()
-		_beat_indicator()
+		
 		#print("PERFECT")
 		beat_label.set_text("PERFECT")
 		player.current_match = Match.PERFECT
-	elif diff_seconds <= 0.25:
 		_beat_indicator()
+	elif diff_seconds <= 0.25:
+		
 		#print("OK")
 		beat_label.set_text("OK")
 		player.current_match = Match.OK
-	else:
 		_beat_indicator()
-		beat_label.set_text("")
+	else:
+		
+		beat_label.set_text("MISS")
 		player.current_match = Match.MISS
+		_beat_indicator()
 		#print("Miss (Timing off)")
 
 	last_processed_beat = player.last_hop_beat
@@ -99,15 +118,24 @@ func spawn_visual_note(target_beat_num: int):
 
 func _on_beat_hit(beat_num: int):
 	if player.last_hop_beat < beat_num and !GameStates.on_ride_disc and GameStates.game_start:
+		player.current_match = GameStates.Match.MISS
+		beat_label.set_text("MISS")
 		_screen_shake()
 		_beat_indicator()
 
 func _beat_indicator():
-	beat_sprite.frame_coords = Vector2(1, 0)
+	match player.current_match:
+		GameStates.Match.PERFECT:
+			beat_sprite.set_texture(PERFECT_CIRCLE)
+		GameStates.Match.OK:
+			beat_sprite.set_texture(OK_CIRCLE)
+		GameStates.Match.MISS:
+			beat_sprite.set_texture(MISS_CIRCLE)
 	
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.3).timeout
 	
-	beat_sprite.frame_coords = Vector2(0, 0)
+	beat_sprite.set_texture(NORMAL_CIRCLE)
+	
 
 func _screen_shake():
 	var cam = get_viewport().get_camera_2d()
@@ -115,7 +143,7 @@ func _screen_shake():
 	
 	var tween = create_tween()
 	# Shake heavily then return to zero
-	for i in range(5):
+	for i in range(round(GameStates.SHAKE_SPEED)):
 		var random_offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * GameStates.SHAKE_INTENSITY
-		tween.tween_property(cam, "offset", random_offset, GameStates.SHAKE_DURATION / 5.0)
+		tween.tween_property(cam, "offset", random_offset, GameStates.SHAKE_DURATION / GameStates.SHAKE_SPEED)
 	tween.tween_property(cam, "offset", Vector2.ZERO, 0.05)

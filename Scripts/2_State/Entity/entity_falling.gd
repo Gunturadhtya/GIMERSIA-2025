@@ -9,7 +9,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 func _start_falling():
 	falling_tween = owner.create_tween()
-
+	
+	if owner is Player:
+		AudioAutoloader.playPlayerDyingSound()
+	elif owner is Abe or owner is Cede:
+		AudioAutoloader.playAbeDyingSound()
+	
 	falling_tween.set_parallel(true)
 	
 	falling_tween.tween_property(

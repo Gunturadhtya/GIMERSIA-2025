@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://067ld416cqg2"]
 
 [ext_resource type="Script" uid="uid://c0cbxopmy6g2i" path="res://Scripts/4_Sytems/Rythm/rythm_note.gd" id="1_bavy6"]
-[ext_resource type="Texture2D" uid="uid://dvplgsu0k40c" path="res://Assets/UI/Beat_Music.png" id="1_cy6au"]
+[ext_resource type="Texture2D" uid="uid://b11uepwpjwssm" path="res://Assets/UI/rythm/line_inactive.png" id="1_iigrf"]
 
 [node name="RythmNote" type="Sprite2D"]
 position = Vector2(0.99999994, 0)
-scale = Vector2(0.12, 0.12)
-texture = ExtResource("1_cy6au")
+texture = ExtResource("1_iigrf")
 script = ExtResource("1_bavy6")

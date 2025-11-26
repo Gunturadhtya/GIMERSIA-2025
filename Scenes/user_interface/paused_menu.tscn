@@ -1,31 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4h7s8wpriilm"]
+[gd_scene load_steps=17 format=3 uid="uid://c4h7s8wpriilm"]
 
 [ext_resource type="Script" uid="uid://dlubm4qhv2bln" path="res://Scripts/4_Sytems/UI/paused_menu.gd" id="1_ifhmh"]
-[ext_resource type="Texture2D" uid="uid://bfyqajirycyn0" path="res://Assets/Menu/Pause_Icon.png" id="2_0a43j"]
-[ext_resource type="Texture2D" uid="uid://cwofxiij4ywav" path="res://Assets/Menu/Pause_Bg_Menu.png" id="3_xxo6t"]
-[ext_resource type="Texture2D" uid="uid://c2qgma72oly7f" path="res://Assets/Menu/Bacground_text_Game_Paused.png" id="4_p2cdt"]
-[ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="5_dvi71"]
+[ext_resource type="Texture2D" uid="uid://dnujahp0bpjm5" path="res://Assets/Menu/menu_overlay.png" id="2_klb0n"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="4_uiiyc"]
+[ext_resource type="Texture2D" uid="uid://c6nmdcu0xkchm" path="res://Assets/Menu/menu_line.png" id="5_trok3"]
+[ext_resource type="Texture2D" uid="uid://bilms2i7fh2jx" path="res://Assets/Menu/icon_volume.png" id="6_2uioq"]
 [ext_resource type="Script" uid="uid://d1ow7lbaixyxk" path="res://Scripts/4_Sytems/UI/AudioSetting.gd" id="6_wrnld"]
-[ext_resource type="Texture2D" uid="uid://dsdh8iulbty2x" path="res://Assets/Menu/Background_Icon_Sound_And_Music.png" id="7_wfsft"]
-[ext_resource type="Texture2D" uid="uid://d21yi1hn284r0" path="res://Assets/Menu/Icon_Sound.png" id="8_llyjq"]
+[ext_resource type="Texture2D" uid="uid://b4hnc8floh2gk" path="res://Assets/Menu/slider_drag.png" id="7_yjmyl"]
+[ext_resource type="Texture2D" uid="uid://crv8he8mpxejm" path="res://Assets/Menu/slider_line.png" id="8_srt1m"]
 [ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="9_5evtf"]
+[ext_resource type="Texture2D" uid="uid://buxv8t1mcfw4l" path="res://Assets/Menu/icon_music_new.png" id="9_puls8"]
 [ext_resource type="Texture2D" uid="uid://de6fgpqoxnfkr" path="res://Assets/Menu/Bar_Volume.png" id="10_n8cbw"]
-[ext_resource type="Texture2D" uid="uid://cixayqhfxd7tp" path="res://Assets/Menu/Icon_Music.png" id="11_pvm0d"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfk3i"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rw52e"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_buke8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1krj1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_akl1l"]
-texture = ExtResource("10_n8cbw")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+texture = ExtResource("8_srt1m")
+texture_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfk3i"]
 texture = ExtResource("10_n8cbw")
@@ -34,137 +23,86 @@ texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rw52e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_buke8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1krj1"]
+
 [node name="PausedMenu" type="CanvasLayer"]
 script = ExtResource("1_ifhmh")
-
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 1178.0
-offset_top = 15.0
-offset_right = 1699.0
-offset_bottom = 536.0
-scale = Vector2(0.1600049, 0.15555653)
-mouse_default_cursor_shape = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yfk3i")
-toggle_mode = true
-icon = ExtResource("2_0a43j")
-flat = true
-icon_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 visible = false
 
 [node name="PauseInterface" type="TextureRect" parent="CanvasLayer"]
-offset_left = 10.0
-offset_top = -70.0
-offset_right = 1291.0
-offset_bottom = 651.0
-texture = ExtResource("3_xxo6t")
+modulate = Color(1, 1, 1, 0.7254902)
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1282.0
+offset_bottom = 724.0
+texture = ExtResource("2_klb0n")
 
-[node name="PausedTextBackground" type="TextureRect" parent="CanvasLayer"]
-offset_left = 473.0
-offset_top = 137.0
-offset_right = 834.0
-offset_bottom = 194.0
-texture = ExtResource("4_p2cdt")
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -190.0
+offset_right = 213.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_wrnld")
 
-[node name="PauseLabel" type="Label" parent="CanvasLayer/PausedTextBackground"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = -3.9999988
-offset_right = 128.0
-offset_bottom = 19.000002
-scale = Vector2(3.011603, 3.011603)
-theme_override_fonts/font = ExtResource("5_dvi71")
-text = "Game Paused"
+[node name="PauseLabel" type="Label" parent="CanvasLayer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_uiiyc")
+theme_override_font_sizes/font_size = 33
+text = "GAME PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 532.00006
-offset_top = 304.0
-offset_right = 644.32
-offset_bottom = 387.0
-scale = Vector2(2.1430452, 2.1430452)
-alignment = 1
-
-[node name="ResumeButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/VBoxContainer2"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("5_dvi71")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rw52e")
-toggle_mode = true
-text = "Resume"
-flat = true
-
-[node name="RetryButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("5_dvi71")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_buke8")
-text = "Retry
-"
-flat = true
-
-[node name="MenuButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("5_dvi71")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1krj1")
-text = "Main Menu"
-flat = true
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 493.0
-offset_top = 206.0
-offset_right = 564.0
-offset_bottom = 292.0
-script = ExtResource("6_wrnld")
+texture = ExtResource("5_trok3")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 120)
 layout_mode = 2
+alignment = 1
 
-[node name="IconBackground" type="TextureRect" parent="CanvasLayer/VBoxContainer2/HBoxContainer"]
+[node name="SoundIcon" type="TextureRect" parent="CanvasLayer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-texture = ExtResource("7_wfsft")
-
-[node name="SoundIcon" type="TextureRect" parent="CanvasLayer/VBoxContainer2/HBoxContainer/IconBackground"]
-layout_mode = 0
-offset_left = 7.9999995
-offset_top = 5.0
-offset_right = 22.0
-offset_bottom = 46.0
-scale = Vector2(1.5793732, 0.74864525)
-texture = ExtResource("8_llyjq")
+texture = ExtResource("6_2uioq")
+stretch_mode = 3
 
 [node name="SfxSlider" type="HSlider" parent="CanvasLayer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
-theme_override_icons/grabber = ExtResource("9_5evtf")
-theme_override_icons/grabber_highlight = ExtResource("9_5evtf")
-theme_override_icons/grabber_disabled = ExtResource("9_5evtf")
+theme_override_icons/grabber = ExtResource("7_yjmyl")
+theme_override_icons/grabber_highlight = ExtResource("7_yjmyl")
+theme_override_icons/grabber_disabled = ExtResource("7_yjmyl")
 theme_override_styles/slider = SubResource("StyleBoxTexture_akl1l")
 max_value = 1.0
 step = 0.01
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+visible = false
 layout_mode = 2
 
-[node name="IconBackground2" type="TextureRect" parent="CanvasLayer/VBoxContainer2/HBoxContainer2"]
+[node name="MusicIcon" type="TextureRect" parent="CanvasLayer/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("7_wfsft")
-
-[node name="MusicIcon" type="TextureRect" parent="CanvasLayer/VBoxContainer2/HBoxContainer2/IconBackground2"]
-layout_mode = 0
-offset_left = 7.999999
-offset_top = 8.000001
-offset_right = 28.0
-offset_bottom = 49.0
-scale = Vector2(1.0521222, 0.61714286)
-texture = ExtResource("11_pvm0d")
+texture = ExtResource("9_puls8")
+stretch_mode = 3
 
 [node name="MusicSlider" type="HSlider" parent="CanvasLayer/VBoxContainer2/HBoxContainer2"]
 custom_minimum_size = Vector2(250, 10)
@@ -178,4 +116,41 @@ theme_override_styles/slider = SubResource("StyleBoxTexture_yfk3i")
 max_value = 1.0
 step = 0.01
 
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_pressed"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_trok3")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_uiiyc")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rw52e")
+toggle_mode = true
+text = "Resume"
+flat = true
+
+[node name="RetryButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_uiiyc")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_buke8")
+text = "Retry
+"
+flat = true
+
+[node name="MenuButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_uiiyc")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1krj1")
+text = "Main Menu"
+flat = true

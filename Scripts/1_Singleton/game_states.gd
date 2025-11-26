@@ -9,12 +9,15 @@ var game_turn: int = 0
 var game_start: bool = false
 
 const levels: Array[String] = [
-	"res://Scenes/Stages/tutorial_1.tscn",
-	"res://Scenes/Stages/tutorial_2.tscn",
-	"res://Scenes/Stages/tutorial_3.tscn",
 	"res://Scenes/Stages/stage_1.tscn",
 	"res://Scenes/Stages/stage_2.tscn",
 	"res://Scenes/Stages/stage_3.tscn",
+	"res://Scenes/Stages/stage_4.tscn",
+	"res://Scenes/Stages/stage_5.tscn",
+	"res://Scenes/Stages/stage_6.tscn",
+	"res://Scenes/Stages/stage_7.tscn",
+	"res://Scenes/Stages/stage_8.tscn",
+	"res://Scenes/Stages/stage_9.tscn"
 ]
 
 @onready var scene_main_menu = preload("res://Scenes/user_interface/main_menu.tscn")
@@ -30,10 +33,11 @@ const PERFECT_WINDOW: float = 0.100
 const OK_WINDOW: float = 0.250
 
 ## Rythm Visual Feedback Configuration
-const SHAKE_INTENSITY := 12.0
+const SHAKE_INTENSITY := 8.0
 const SHAKE_DURATION := 0.2
+const SHAKE_SPEED := 9.0 ## The Highest it goes the faster the shake
 const BOUNCE_OFFSET_OK := 6.0
-const BOUNCE_OFFSET_PERFECT := 16.0
+const BOUNCE_OFFSET_PERFECT := 12.0
 
 func load_next_level():
 	var current_scene_file = get_tree().current_scene.scene_file_path

@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://5bnw4logfsd2"]
 
 [ext_resource type="Script" uid="uid://cy1ogfes0820g" path="res://Scripts/4_Sytems/UI/level_selection.gd" id="1_8xar1"]
-[ext_resource type="Texture2D" uid="uid://2n80vopu5jw1" path="res://Assets/Menu/Bacgkround_Main_Menu.png" id="2_tcw1j"]
-[ext_resource type="Texture2D" uid="uid://bqy5shoby8sow" path="res://Assets/Menu/Level_Not_Clear.png" id="2_wrvio"]
+[ext_resource type="Texture2D" uid="uid://cgq7e6vx5kkpw" path="res://Assets/UI/Background_1.png" id="2_flc0l"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="3_tcw1j"]
-[ext_resource type="Texture2D" uid="uid://clg45uqrdb0ge" path="res://Assets/Menu/Level_Clear.png" id="4_tq4a2"]
-[ext_resource type="Texture2D" uid="uid://kv5sw07rfop7" path="res://Assets/Menu/Icon_Back_Stage_Level_.png" id="6_w142l"]
+[ext_resource type="Texture2D" uid="uid://cbonbsbx1s6w" path="res://Assets/Menu/level_select.png" id="3_ucrde"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="4_8j6ct"]
+[ext_resource type="Texture2D" uid="uid://dd0jvg0e0vpe8" path="res://Assets/Menu/angle_bracket_left.png" id="6_3q4yl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tq4a2"]
 
@@ -17,93 +17,98 @@ script = ExtResource("1_8xar1")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 2073.2588
+offset_bottom = 1176.9312
 scale = Vector2(0.62365586, 0.62365586)
-texture = ExtResource("2_tcw1j")
+texture = ExtResource("2_flc0l")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 170.0
-offset_top = 247.0
-offset_right = 1090.0
-offset_bottom = 755.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 334.0
+offset_top = 189.0
+offset_right = 1254.0
+offset_bottom = 827.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
 [node name="Stage1" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(200, 210)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_wrvio")
-texture_disabled = ExtResource("4_tq4a2")
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage1"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 1
 layout_mode = 0
-offset_left = 96.0
-offset_top = 41.0
-offset_right = 136.0
-offset_bottom = 86.0
+offset_left = 48.28568
+offset_top = 60.000004
+offset_right = 88.285675
+offset_bottom = 105.00001
 scale = Vector2(2.5837834, 2.4974613)
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
 theme_override_font_sizes/font_size = 32
-text = "1"
+text = "I"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Stage2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(200, 210)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_wrvio")
-texture_disabled = ExtResource("4_tq4a2")
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage2"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 1
 layout_mode = 0
-offset_left = 96.0
-offset_top = 41.0
-offset_right = 136.0
-offset_bottom = 86.0
+offset_left = 48.57141
+offset_top = 60.000004
+offset_right = 88.57141
+offset_bottom = 105.00001
 scale = Vector2(2.5837834, 2.4974613)
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
 theme_override_font_sizes/font_size = 32
-text = "2"
+text = "II"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Stage3" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(200, 210)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_wrvio")
-texture_disabled = ExtResource("4_tq4a2")
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage3"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 1
 layout_mode = 0
-offset_left = 96.0
-offset_top = 41.0
-offset_right = 136.0
-offset_bottom = 86.0
+offset_left = 48.857143
+offset_top = 62.857147
+offset_right = 88.85715
+offset_bottom = 107.85715
 scale = Vector2(2.5837834, 2.4974613)
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
 theme_override_font_sizes/font_size = 32
-text = "3"
+text = "III"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -111,105 +116,182 @@ alignment = 1
 
 [node name="Stage4" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
 texture_filter = 1
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(200, 210)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_wrvio")
-texture_disabled = ExtResource("4_tq4a2")
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage4"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 1
 layout_mode = 0
-offset_left = 96.0
-offset_top = 41.0
-offset_right = 136.0
-offset_bottom = 86.0
+offset_left = 46.857105
+offset_top = 60.28571
+offset_right = 86.8571
+offset_bottom = 105.285706
 scale = Vector2(2.5837834, 2.4974613)
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
 theme_override_font_sizes/font_size = 32
-text = "4"
+text = "IV"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Stage5" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
 texture_filter = 1
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(200, 210)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_wrvio")
-texture_disabled = ExtResource("4_tq4a2")
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage5"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 1
 layout_mode = 0
-offset_left = 96.0
-offset_top = 41.0
-offset_right = 136.0
-offset_bottom = 86.0
+offset_left = 46.857105
+offset_top = 60.28571
+offset_right = 86.8571
+offset_bottom = 105.285706
 scale = Vector2(2.5837834, 2.4974613)
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
 theme_override_font_sizes/font_size = 32
-text = "5"
+text = "V"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Stage6" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
 texture_filter = 1
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(200, 210)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_wrvio")
-texture_disabled = ExtResource("4_tq4a2")
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage6"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 1
 layout_mode = 0
-offset_left = 96.0
-offset_top = 41.0
-offset_right = 136.0
-offset_bottom = 86.0
+offset_left = 46.857105
+offset_top = 60.28571
+offset_right = 86.8571
+offset_bottom = 105.285706
 scale = Vector2(2.5837834, 2.4974613)
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
 theme_override_font_sizes/font_size = 32
-text = "6"
+text = "VI"
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Stage7" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 210)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/Stage7"]
+layout_mode = 0
+offset_left = 39.71425
+offset_top = 56.28573
+offset_right = 79.71425
+offset_bottom = 101.285736
+scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
+theme_override_font_sizes/font_size = 32
+text = "VII"
+horizontal_alignment = 1
+
+[node name="Stage8" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 210)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/Stage8"]
+layout_mode = 0
+offset_left = 39.71425
+offset_top = 56.28573
+offset_right = 85.71425
+offset_bottom = 101.285736
+scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
+theme_override_font_sizes/font_size = 32
+text = "VIII"
+horizontal_alignment = 1
+
+[node name="Stage9" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 210)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_ucrde")
+texture_disabled = ExtResource("3_ucrde")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/Stage9"]
+layout_mode = 0
+offset_left = 39.71425
+offset_top = 56.28573
+offset_right = 79.71425
+offset_bottom = 101.285736
+scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8j6ct")
+theme_override_font_sizes/font_size = 32
+text = "IX"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 327.0
-offset_top = 81.0
-offset_right = 740.0
-offset_bottom = 146.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 339.0
+offset_top = 65.0
+offset_right = 752.0
+offset_bottom = 130.0
+grow_horizontal = 2
 scale = Vector2(1.3834422, 1.3834422)
-theme_override_fonts/font = ExtResource("3_tcw1j")
-theme_override_font_sizes/font_size = 64
-text = "Stage Selection"
+theme_override_fonts/font = ExtResource("4_8j6ct")
+theme_override_font_sizes/font_size = 33
+text = "LEVEL SELECTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 81.0
-offset_top = 63.0
-offset_right = 204.0
-offset_bottom = 186.0
+offset_left = 28.0
+offset_top = 31.0
+offset_right = 118.732124
+offset_bottom = 115.76291
 scale = Vector2(0.83763057, 0.83763057)
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("3_tcw1j")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tq4a2")
-icon = ExtResource("6_w142l")
+icon = ExtResource("6_3q4yl")
 flat = true
 icon_alignment = 1
 
@@ -219,4 +301,7 @@ icon_alignment = 1
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage4" to="." method="_change_to_stage" binds= [3]]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage5" to="." method="_change_to_stage" binds= [4]]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage6" to="." method="_change_to_stage" binds= [5]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Stage7" to="." method="_change_to_stage" binds= [6]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Stage8" to="." method="_change_to_stage" binds= [7]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Stage9" to="." method="_change_to_stage" binds= [8]]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

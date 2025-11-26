@@ -1,0 +1,115 @@
+[gd_scene load_steps=19 format=4 uid="uid://cv8ufv8j1surd"]
+
+[ext_resource type="Script" uid="uid://dd1w1laf2ep5v" path="res://Scripts/4_Sytems/Stages/stage_4.gd" id="1_0yfdq"]
+[ext_resource type="Resource" uid="uid://cujqbkc3xk2hr" path="res://Resources/BeatMap/stage_4_beat_map.tres" id="2_4v44b"]
+[ext_resource type="Texture2D" uid="uid://c02xwq81cf5g0" path="res://Assets/UI/Background_2.png" id="3_0yfdq"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="3_4d3ad"]
+[ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="3_knqcm"]
+[ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="5_67rbt"]
+[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="6_5ykpn"]
+[ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/0_Templates/state_machine.gd" id="7_wg07j"]
+[ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scripts/2_State/Stage/ready.gd" id="8_yy85q"]
+[ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scripts/2_State/Stage/playing.gd" id="9_54mll"]
+[ext_resource type="Script" uid="uid://dpgsgkseg6256" path="res://Scripts/2_State/Stage/level_cleared.gd" id="10_om3mu"]
+[ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scripts/2_State/Stage/game_over.gd" id="11_7j828"]
+[ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythm/rythm_ui.tscn" id="12_qpkmd"]
+[ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythm/rythm_note.tscn" id="13_eduu3"]
+[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Entity/abe_enemy.tscn" id="14_nyhxi"]
+[ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared_menu.tscn" id="16_kb25s"]
+[ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over_menu.tscn" id="17_bw7fi"]
+[ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/paused_menu.tscn" id="18_jcqfb"]
+
+[node name="Stage4" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager", "conductor")]
+script = ExtResource("1_0yfdq")
+_spawn_pos = Vector2(-3, 11)
+tilemap_layer = NodePath("TileMapLayer")
+player = NodePath("Player")
+level_cleared_menu = NodePath("LevelClearedMenu")
+game_over_menu = NodePath("GameOverMenu")
+rythim_manager = NodePath("RythmManager")
+conductor = NodePath("Conductor")
+beat_map = ExtResource("2_4v44b")
+target_cleared_cube = 22
+star_2_threshold = 41
+star_3_threshold = 31
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 793.0
+offset_top = 121.0
+offset_right = 1191.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("3_4d3ad")
+theme_override_font_sizes/font_size = 26
+text = "Beware of Abe,
+Stomp Abe before he stomp you"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_knqcm")]
+player = NodePath("../Player")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1282.0
+offset_bottom = 718.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -454.0
+offset_top = -274.0
+offset_right = 486.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0yfdq")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6/w4ABwAAAAAAAAD7/wwABwAAAAAAAAD7/w8ABwAAAAAAAAD8/w0ABwAAAAAAAAD8/xAABwAAAAAAAAD9/w4ABwAAAAAAAAD9/xEABwAAAAAAAAD+/wwABwAAAAAAAAD+/w8ABwAAAAAAAAD//woABwAAAAAAAAD//w0ABwAAAAAAAAD//xAABwAAAAAAAAAAAAsABwAAAAAAAAAAAA4ABwAAAAAAAAABAAkABwAAAAAAAAABAAwABwAAAAAAAAD+/xIABwAAAAAAAAAAABEABwAAAAAAAAABAA8ABwAAAAAAAAACAAoABwAAAAAAAAACAA0ABwAAAAAAAAADAAgABwAAAAAAAAD9/wsABwAAAAIAAAA=")
+tile_set = ExtResource("5_67rbt")
+
+[node name="Player" parent="." node_paths=PackedStringArray("world", "conductor") instance=ExtResource("6_5ykpn")]
+z_index = 1
+position = Vector2(461, 382)
+world = NodePath("..")
+conductor = NodePath("../Conductor")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("7_wg07j")
+initial_state = NodePath("Ready")
+
+[node name="Ready" type="Node" parent="StateMachine"]
+script = ExtResource("8_yy85q")
+
+[node name="Playing" type="Node" parent="StateMachine"]
+script = ExtResource("9_54mll")
+
+[node name="LevelCleared" type="Node" parent="StateMachine"]
+script = ExtResource("10_om3mu")
+
+[node name="GameOver" type="Node" parent="StateMachine"]
+script = ExtResource("11_7j828")
+
+[node name="RythmManager" parent="." node_paths=PackedStringArray("conductor", "player") instance=ExtResource("12_qpkmd")]
+conductor = NodePath("../Conductor")
+player = NodePath("../Player")
+note_scene = ExtResource("13_eduu3")
+
+[node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("14_nyhxi")]
+position = Vector2(853, 366)
+world = NodePath("..")
+
+[node name="LevelClearedMenu" parent="." instance=ExtResource("16_kb25s")]
+
+[node name="GameOverMenu" parent="." instance=ExtResource("17_bw7fi")]
+
+[node name="PausedMenu" parent="." instance=ExtResource("18_jcqfb")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(651, 357)
+zoom = Vector2(0.6, 0.6)

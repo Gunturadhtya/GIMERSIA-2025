@@ -2,7 +2,7 @@ extends Node
 
 
 
-@export var debug_mode: bool = true
+@export var debug_mode: bool = false
 @export var player: Player
 
 @onready var music_player = $MusicPlayer
