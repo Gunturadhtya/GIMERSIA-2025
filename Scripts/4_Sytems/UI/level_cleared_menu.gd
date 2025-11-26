@@ -48,21 +48,27 @@ func _calculate_and_animate_stars(value: int):
 	var pop_tween = create_tween()
 	# Star 1
 	if stars_earned >= 1:
+		
 		pop_tween.tween_callback(func(): 
+			AudioAutoloader.playStar1()
 			star_1.modulate = Color.WHITE
 			_pop_scale(star_1)
 		)
 		pop_tween.tween_interval(0.4) 
 	# Star 2
 	if stars_earned >= 2:
+		
 		pop_tween.tween_callback(func(): 
+			AudioAutoloader.playStar2()
 			star_2.modulate = Color.WHITE
 			_pop_scale(star_2)
 		)
 		pop_tween.tween_interval(0.4)
 	# Star 3
 	if stars_earned >= 3:
+		
 		pop_tween.tween_callback(func(): 
+			AudioAutoloader.playStar3()
 			star_3.modulate = Color.WHITE
 			_pop_scale(star_3)
 		)

@@ -33,10 +33,11 @@ const PERFECT_WINDOW: float = 0.100
 const OK_WINDOW: float = 0.250
 
 ## Rythm Visual Feedback Configuration
-const SHAKE_INTENSITY := 12.0
+const SHAKE_INTENSITY := 8.0
 const SHAKE_DURATION := 0.2
+const SHAKE_SPEED := 9.0 ## The Highest it goes the faster the shake
 const BOUNCE_OFFSET_OK := 6.0
-const BOUNCE_OFFSET_PERFECT := 16.0
+const BOUNCE_OFFSET_PERFECT := 12.0
 
 func load_next_level():
 	var current_scene_file = get_tree().current_scene.scene_file_path

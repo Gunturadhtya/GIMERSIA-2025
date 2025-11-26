@@ -102,9 +102,9 @@ func _tween_shake() -> void:
 	
 	var tween = create_tween()
 	# Shake heavily then return to zero
-	for i in range(5):
+	for i in range(GameStates.SHAKE_SPEED):
 		var random_offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * GameStates.SHAKE_INTENSITY
-		tween.tween_property(cam, "offset", random_offset, GameStates.SHAKE_DURATION / 5.0)
+		tween.tween_property(cam, "offset", random_offset, GameStates.SHAKE_DURATION / GameStates.SHAKE_SPEED)
 	tween.tween_property(cam, "offset", Vector2.ZERO, 0.05)
 
 func _tween_bounce(is_perfect: bool) -> void:
