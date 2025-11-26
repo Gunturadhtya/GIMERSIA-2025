@@ -1,27 +1,25 @@
-[gd_scene load_steps=19 format=4 uid="uid://rw5ak8hsavi4"]
+[gd_scene load_steps=17 format=4 uid="uid://rw5ak8hsavi4"]
 
 [ext_resource type="Script" uid="uid://dgtfth0ejig1m" path="res://Scripts/4_Sytems/Stages/stage_2.gd" id="1_ds88h"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="2_0j8e6"]
 [ext_resource type="Resource" uid="uid://bdabe5tnxey3r" path="res://Resources/BeatMap/stage_2_beat_map.tres" id="2_c6ep6"]
-[ext_resource type="Texture2D" uid="uid://c02xwq81cf5g0" path="res://Assets/UI/Background_2.png" id="2_ds88h"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
+[ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/UI/background_3.png" id="3_t0gjp"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/0_Templates/state_machine.gd" id="4_n86wx"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scripts/2_State/Stage/ready.gd" id="5_nceub"]
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scripts/2_State/Stage/playing.gd" id="6_7828x"]
 [ext_resource type="Script" uid="uid://dpgsgkseg6256" path="res://Scripts/2_State/Stage/level_cleared.gd" id="7_nceub"]
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scripts/2_State/Stage/game_over.gd" id="8_7828x"]
-[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Entity/abe_enemy.tscn" id="11_r1t47"]
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythm/rythm_ui.tscn" id="12_1bqcc"]
 [ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythm/rythm_note.tscn" id="13_ibkev"]
 [ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/paused_menu.tscn" id="19_fyuq8"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="20_c6ep6"]
 [ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over_menu.tscn" id="28_lrxf1"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared_menu.tscn" id="30_2m653"]
-[ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Entity/cede_enemy.tscn" id="31_rqmrp"]
 
 [node name="Stage2" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager", "conductor")]
 script = ExtResource("1_ds88h")
-_spawn_pos = Vector2(4, 8)
+_spawn_pos = Vector2(-2, 14)
 tilemap_layer = NodePath("TileMapLayer")
 player = NodePath("Player")
 level_cleared_menu = NodePath("LevelClearedMenu")
@@ -29,7 +27,6 @@ game_over_menu = NodePath("GameOverMenu")
 rythim_manager = NodePath("RythmManager")
 conductor = NodePath("Conductor")
 beat_map = ExtResource("2_c6ep6")
-target_cleared_cube = 43
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -48,15 +45,15 @@ offset_right = 784.0
 offset_bottom = 746.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ds88h")
+texture = ExtResource("3_t0gjp")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD2/w8ABwAAAAAAAAD3/w0ABwAAAAAAAAD3/xAABwAAAAAAAAD4/w4ABwAAAAAAAAD4/xEABwAAAAAAAAD5/wwABwAAAAAAAAD5/w8ABwAAAAAAAAD6/w0ABwAAAAAAAAD6/xAABwAAAAAAAAD7/wsABwAAAAAAAAD7/w4ABwAAAAAAAAD7/xQABwAAAAAAAAD8/wwABwAAAAAAAAD8/w8ABwAAAAAAAAD8/xIABwAAAAAAAAD8/xUABwAAAAAAAAD9/woABwAAAAAAAAD9/w0ABwAAAAAAAAD9/xMABwAAAAAAAAD+/wsABwAAAAAAAAD+/w4ABwAAAAAAAAD+/xEABwAAAAAAAAD+/xQABwAAAAAAAAD//wkABwAAAAAAAAD//wwABwAAAAAAAAD//w8ABwAAAAAAAAD//xIABwAAAAAAAAAAAAoABwAAAAAAAAAAAA0ABwAAAAAAAAAAABAABwAAAAAAAAAAABMABwAAAAAAAAABAAgABwAAAAAAAAABAAsABwAAAAAAAAABAA4ABwAAAAAAAAABABEABwAAAAAAAAACAAkABwAAAAAAAAACAAwABwAAAAAAAAACAA8ABwAAAAAAAAADAAcABwAAAAAAAAADAAoABwAAAAAAAAADAA0ABwAAAAAAAAAEAAsABwAAAAAAAAAFAAkABwAAAAAAAAAEAAgABwAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAD7/xEABgAAAAAAAAD8/w8ABgAAAAAAAAD9/w0ABgAAAAAAAAD9/xAABgAAAAAAAAD+/wsABgAAAAAAAAD//wwABgAAAAAAAAD//w8ABgAAAAAAAAAAAAoABgAAAAAAAAAAAA0ABgAAAAAAAAABAAsABgAAAAAAAAABAA4ABgAAAAAAAAACAAkABgAAAAAAAAACAAwABgAAAAAAAAADAAoABgAAAAAAAAAEAAgABgAAAAAAAAD+/w4ABgAAAAEAAAA=")
 tile_set = ExtResource("2_f1gwu")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world", "conductor") instance=ExtResource("2_0j8e6")]
 z_index = 1
-position = Vector2(654, 126)
+position = Vector2(654, 422)
 world = NodePath("..")
 conductor = NodePath("../Conductor")
 
@@ -80,14 +77,6 @@ script = ExtResource("8_7828x")
 conductor = NodePath("../Conductor")
 player = NodePath("../Player")
 note_scene = ExtResource("13_ibkev")
-
-[node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
-position = Vector2(444, 563)
-world = NodePath("..")
-
-[node name="CedeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("31_rqmrp")]
-position = Vector2(845, 412)
-world = NodePath("..")
 
 [node name="LevelClearedMenu" parent="." instance=ExtResource("30_2m653")]
 

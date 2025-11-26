@@ -11,9 +11,8 @@ class_name Stage extends Node2D
 @export var target_cleared_cube: int = 15
 
 @export_group("Star Threshold")
-@export var star_1_threshold: int
-@export var star_2_threshold: int
-@export var star_3_threshold: int
+@export var star_2_threshold: int = 0
+@export var star_3_threshold: int = 0
 
 var current_cleared_cube = 0
 
@@ -102,7 +101,7 @@ func on_player_landed(grid_pos: Vector2i):
 		current_cleared_cube += 1
 		return
 	
-	# If the cube already lit up
+	## If the cube already lit up
 	if current_index > target_index:
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
 		await get_tree().create_timer(0.05).timeout
@@ -120,12 +119,18 @@ func is_tile_walkable(grid_pos: Vector2i) -> bool:
 func show_grade():
 	player.has_moved = false
 	
+	var star_thresholds: Dictionary[int, int]
 	# Dict to store star threshold
-	var star_thresholds = {
-		3: star_1_threshold,
-		2: star_2_threshold,
-		1: star_3_threshold
-	}
+	if star_2_threshold == 0 and star_3_threshold == 0:
+		star_thresholds = {
+			3: round(target_cleared_cube * 1.3),
+			2: round(target_cleared_cube * 1.7)
+		}
+	else:
+		star_thresholds = {
+			3: star_3_threshold,
+			2: star_2_threshold
+		}
 	
 	# Launching the star calculation method 
 	if level_cleared_menu.has_method("setup_grade"):

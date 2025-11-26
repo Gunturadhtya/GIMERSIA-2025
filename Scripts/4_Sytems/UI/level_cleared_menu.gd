@@ -41,7 +41,7 @@ func _calculate_and_animate_stars(value: int):
 		stars_earned = 3
 	elif value <= _current_thresholds.get(2, 0):
 		stars_earned = 2
-	elif value <= _current_thresholds.get(1, 0):
+	else:
 		stars_earned = 1
 	
 	# Star Animation (for placeholder star)
