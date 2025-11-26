@@ -1,24 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://co1arptro4wbk"]
+[gd_scene load_steps=10 format=3 uid="uid://co1arptro4wbk"]
 
 [ext_resource type="Script" uid="uid://cp3l3muckag3y" path="res://Scripts/4_Sytems/UI/main_menu.gd" id="1_xamy8"]
 [ext_resource type="Texture2D" uid="uid://d3fecxfi6qdfs" path="res://Assets/Menu/Title_Main_Menu_1.png" id="2_lhiuk"]
-[ext_resource type="Texture2D" uid="uid://2n80vopu5jw1" path="res://Assets/Menu/Bacgkround_Main_Menu.png" id="3_i1wka"]
+[ext_resource type="Texture2D" uid="uid://cgq7e6vx5kkpw" path="res://Assets/UI/Background_1.png" id="3_fj5jy"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="4_g81y2"]
 [ext_resource type="Script" uid="uid://pkxbsbgdyifc" path="res://Scripts/4_Sytems/UI/button_animation.gd" id="5_saren"]
-[ext_resource type="Texture2D" uid="uid://cxikslb53m3q8" path="res://Assets/Menu/Indikator_Left.png" id="6_nsg0c"]
-[ext_resource type="Texture2D" uid="uid://bkg65yfm2wn6x" path="res://Assets/Menu/Indikator_RIght.png" id="7_d5opv"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="7_2nc3n"]
+[ext_resource type="Texture2D" uid="uid://dd0jvg0e0vpe8" path="res://Assets/Menu/angle_bracket_left.png" id="9_qk2fo"]
+[ext_resource type="Texture2D" uid="uid://d4eqep68qdtk4" path="res://Assets/Menu/angle_bracket_right.png" id="10_s1hnr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vys5n"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="CanvasLayer"]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 0
+follow_viewport_enabled = true
 script = ExtResource("1_xamy8")
 
 [node name="Title" type="TextureRect" parent="."]
 z_index = 1
-layout_mode = 0
 offset_left = 203.00002
 offset_top = -97.00001
 offset_right = 2163.0
@@ -27,23 +26,21 @@ scale = Vector2(0.45843145, 0.4442283)
 texture = ExtResource("2_lhiuk")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 2058.8276
+offset_bottom = 1159.2932
 scale = Vector2(0.62365586, 0.62365586)
-texture = ExtResource("3_i1wka")
+texture = ExtResource("3_fj5jy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-offset_left = 467.0
-offset_top = 329.0
-offset_right = 587.0
-offset_bottom = 447.0
+offset_left = 469.0
+offset_top = 246.0
+offset_right = 589.0
+offset_bottom = 364.0
 scale = Vector2(2.9899166, 2.9899166)
 alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 30)
+custom_minimum_size = Vector2(50, 15)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_default_cursor_shape = 2
@@ -56,24 +53,24 @@ script = ExtResource("5_saren")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/StartButton"]
 layout_mode = 0
-offset_left = -9.699268
-offset_top = -13.712746
-offset_right = 133.30074
-offset_bottom = 42.287254
+offset_left = -12.374928
+offset_top = -2.9021997
+offset_right = 130.62508
+offset_bottom = 12.0978
 alignment = 1
 
 [node name="LeftIcon" type="TextureRect" parent="VBoxContainer/StartButton/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-texture = ExtResource("6_nsg0c")
+texture = ExtResource("9_qk2fo")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/StartButton/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_g81y2")
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("7_2nc3n")
+theme_override_font_sizes/font_size = 12
 text = "Start Game"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -82,16 +79,16 @@ vertical_alignment = 1
 visible = false
 custom_minimum_size = Vector2(10, 5)
 layout_mode = 2
-texture = ExtResource("7_d5opv")
+texture = ExtResource("10_s1hnr")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="LevelSelectionButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(120, 15)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("4_g81y2")
+theme_override_fonts/font = ExtResource("7_2nc3n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vys5n")
 toggle_mode = true
 flat = true
@@ -100,36 +97,36 @@ script = ExtResource("5_saren")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/LevelSelectionButton"]
 layout_mode = 0
-offset_left = -8.361439
-offset_top = -6.5744743
-offset_right = 134.63857
-offset_bottom = 49.425526
+offset_left = -11.371556
+offset_top = -1.5002904
+offset_right = 131.62845
+offset_bottom = 17.563782
 alignment = 1
 
 [node name="LeftIcon" type="TextureRect" parent="VBoxContainer/LevelSelectionButton/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-texture = ExtResource("6_nsg0c")
+texture = ExtResource("9_qk2fo")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/LevelSelectionButton/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_g81y2")
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("7_2nc3n")
+theme_override_font_sizes/font_size = 12
 text = "Level Selection"
 
 [node name="RightIcon" type="TextureRect" parent="VBoxContainer/LevelSelectionButton/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(10, 5)
 layout_mode = 2
-texture = ExtResource("7_d5opv")
+texture = ExtResource("10_s1hnr")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(20, 40)
+custom_minimum_size = Vector2(30, 15)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("4_g81y2")
@@ -141,31 +138,31 @@ script = ExtResource("5_saren")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/QuitButton"]
 layout_mode = 0
-offset_left = -7.692522
-offset_top = -9.436195
-offset_right = 135.30748
-offset_bottom = 46.563805
+offset_left = -13.712756
+offset_top = 2.5772772
+offset_right = 129.28725
+offset_bottom = 17.577278
 alignment = 1
 
 [node name="LeftIcon" type="TextureRect" parent="VBoxContainer/QuitButton/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-texture = ExtResource("6_nsg0c")
+texture = ExtResource("9_qk2fo")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/QuitButton/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_g81y2")
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("7_2nc3n")
+theme_override_font_sizes/font_size = 12
 text = "Quit"
 
 [node name="RightIcon" type="TextureRect" parent="VBoxContainer/QuitButton/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(10, 5)
 layout_mode = 2
-texture = ExtResource("7_d5opv")
+texture = ExtResource("10_s1hnr")
 expand_mode = 1
 stretch_mode = 5
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://bxavt201ne8dd"]
+[gd_scene load_steps=18 format=4 uid="uid://bxavt201ne8dd"]
 
 [ext_resource type="Script" uid="uid://wchgvoygwfam" path="res://Scripts/4_Sytems/Stages/stage_3.gd" id="1_wahff"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="2_0j8e6"]
 [ext_resource type="Resource" uid="uid://csybxbrw26mnk" path="res://Resources/BeatMap/stage_3_beat_map.tres" id="2_36h0e"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="3_52hpr"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="3_n0x4r"]
 [ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/UI/background_3.png" id="4_lo83c"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/0_Templates/state_machine.gd" id="4_n86wx"]
@@ -29,6 +30,19 @@ conductor = NodePath("Conductor")
 beat_map = ExtResource("2_36h0e")
 target_cleared_cube = 16
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 834.0
+offset_top = 159.0
+offset_right = 1128.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("3_52hpr")
+theme_override_font_sizes/font_size = 26
+text = "Try to get all star"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_n0x4r")]
 player = NodePath("../Player")
 
@@ -43,10 +57,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -78.0
-offset_top = -59.0
-offset_right = 112.0
-offset_bottom = 65.0
+offset_left = -243.0
+offset_top = -149.0
+offset_right = 260.0
+offset_bottom = 168.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_lo83c")
@@ -90,4 +104,4 @@ note_scene = ExtResource("15_3l3oa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(651, 357)
-zoom = Vector2(0.9, 0.9)
+zoom = Vector2(0.75, 0.75)

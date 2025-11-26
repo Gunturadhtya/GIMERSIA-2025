@@ -1,116 +1,120 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlefw2di5wvbd"]
+[gd_scene load_steps=8 format=3 uid="uid://dlefw2di5wvbd"]
 
 [ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scripts/4_Sytems/UI/level_cleared_menu.gd" id="1_aq7xc"]
-[ext_resource type="Texture2D" uid="uid://doa2lmuqeux4f" path="res://Assets/Menu/Asset_27.png" id="2_sarff"]
-[ext_resource type="Texture2D" uid="uid://bn2ycn6juow7f" path="res://Assets/Menu/Asset_25.png" id="3_nku0d"]
-[ext_resource type="Texture2D" uid="uid://cwofxiij4ywav" path="res://Assets/Menu/Pause_Bg_Menu.png" id="4_2bau2"]
-[ext_resource type="Texture2D" uid="uid://c2qgma72oly7f" path="res://Assets/Menu/Bacground_text_Game_Paused.png" id="5_7woqo"]
-[ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="6_ukm0k"]
-[ext_resource type="Texture2D" uid="uid://lnemlcpfswv6" path="res://Assets/Menu/Asset_26.png" id="7_i5d5e"]
-[ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="8_8ey3q"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_055xg"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="2_5eh7w"]
+[ext_resource type="Texture2D" uid="uid://dnujahp0bpjm5" path="res://Assets/Menu/menu_overlay.png" id="3_0lt3b"]
+[ext_resource type="Texture2D" uid="uid://bh7ydcguj37p5" path="res://Assets/UI/rythm/star.png" id="4_dw0u2"]
+[ext_resource type="Texture2D" uid="uid://c6nmdcu0xkchm" path="res://Assets/Menu/menu_line.png" id="5_8ey3q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjpfr"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1krj1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_055xg"]
 
 [node name="LevelClearedMenu" type="CanvasLayer"]
 process_mode = 3
 visible = false
 script = ExtResource("1_aq7xc")
 
-[node name="RetryButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 78.00006
-offset_top = 3.0000305
-offset_right = 140.00006
-offset_bottom = 64.00003
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.208312, 1.208312)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_055xg")
-icon = ExtResource("2_sarff")
-flat = true
-icon_alignment = 1
-
-[node name="NextButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -21.0
-offset_right = 12.0
-offset_bottom = 72.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2326714, 1.2326714)
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 64
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sjpfr")
-icon = ExtResource("3_nku0d")
-flat = true
-icon_alignment = 1
-
 [node name="background" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.84705883)
 z_index = -1
-position = Vector2(618.5, 348.5)
-texture = ExtResource("4_2bau2")
+position = Vector2(639, 355)
+texture = ExtResource("3_0lt3b")
 
-[node name="textBackground" type="Sprite2D" parent="."]
-position = Vector2(624, 225.5)
-texture = ExtResource("5_7woqo")
-
-[node name="Label" type="Label" parent="textBackground"]
-anchors_preset = 5
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -254.0
-offset_top = -38.0
-offset_right = 21.0
-offset_bottom = 150.0
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -123.0
+offset_right = 213.0
+offset_bottom = 123.0
 grow_horizontal = 2
-scale = Vector2(0.7844014, 0.7844014)
-theme_override_font_sizes/font_size = 64
-text = "You Won
-"
+grow_vertical = 2
 
-[node name="MenuButton" type="Button" parent="."]
-offset_left = 453.0
-offset_top = 371.5
-offset_right = 515.0
-offset_bottom = 432.5
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("6_ukm0k")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1krj1")
-icon = ExtResource("7_i5d5e")
-flat = true
-icon_alignment = 1
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5eh7w")
+theme_override_font_sizes/font_size = 42
+text = "LEVEL COMPLETE"
+horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 549.0
-offset_top = 275.0
-offset_right = 608.0
-offset_bottom = 315.0
-scale = Vector2(2.2230074, 1.4238809)
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+texture = ExtResource("5_8ey3q")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
 alignment = 1
 
-[node name="Star1" type="TextureRect" parent="HBoxContainer"]
+[node name="Star1" type="TextureRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-texture = ExtResource("8_8ey3q")
+texture = ExtResource("4_dw0u2")
+stretch_mode = 3
 
-[node name="Star2" type="TextureRect" parent="HBoxContainer"]
+[node name="Star2" type="TextureRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-texture = ExtResource("8_8ey3q")
+texture = ExtResource("4_dw0u2")
+stretch_mode = 3
 
-[node name="Star3" type="TextureRect" parent="HBoxContainer"]
+[node name="Star3" type="TextureRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-texture = ExtResource("8_8ey3q")
+texture = ExtResource("4_dw0u2")
+stretch_mode = 3
+
+[node name="TurnLabel" type="Label" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5eh7w")
+theme_override_font_sizes/font_size = 26
+text = "Turn : N"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+texture = ExtResource("5_8ey3q")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="NextButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_5eh7w")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjpfr")
+text = "Next Level"
+flat = true
+icon_alignment = 1
+
+[node name="RetryButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_5eh7w")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_055xg")
+text = "Retry"
+flat = true
+icon_alignment = 1
+
+[node name="MenuButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_5eh7w")
+theme_override_font_sizes/font_size = 26
+text = "Main Menu"
+flat = true
+icon_alignment = 1

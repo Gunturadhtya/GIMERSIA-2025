@@ -20,7 +20,7 @@ var star_thresholds: Dictionary[int, int]
 const TILE_OFFSET = Vector2(1, 1)
 
 func _ready() -> void:
-	GameStates.reset_game_stats()
+	
 	get_tree().paused = false	
 	#print(get_screen_pos_for_cell(get_spawn_pos()))
 	conductor.load_map(beat_map)

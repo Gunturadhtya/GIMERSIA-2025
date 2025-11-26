@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c03yw85t8qyf2"]
+[gd_scene load_steps=18 format=4 uid="uid://c03yw85t8qyf2"]
 
 [ext_resource type="Script" uid="uid://bcfxfsqcjn5js" path="res://Scripts/4_Sytems/Stages/stage_1.gd" id="1_a3nje"]
 [ext_resource type="Resource" uid="uid://b27arfdlt8vbj" path="res://Resources/BeatMap/stage_1_beat_map.tres" id="2_2j2vi"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythm/rythm_note.tscn" id="13_euq63"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared_menu.tscn" id="16_q05fk"]
 [ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over_menu.tscn" id="17_2fsv8"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="17_elwkq"]
 [ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/paused_menu.tscn" id="18_6c63l"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="19_56f2l"]
 
@@ -28,6 +29,31 @@ rythim_manager = NodePath("RythmManager")
 conductor = NodePath("Conductor")
 beat_map = ExtResource("2_2j2vi")
 target_cleared_cube = 12
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 834.0
+offset_top = 159.0
+offset_right = 1128.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("17_elwkq")
+theme_override_font_sizes/font_size = 26
+text = "Try moving using WASD 
+or Arrow Keyboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 810.0
+offset_top = 261.0
+offset_right = 1169.0
+offset_bottom = 328.0
+theme_override_fonts/font = ExtResource("17_elwkq")
+theme_override_font_sizes/font_size = 26
+text = "Lit up all the cube to progress"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

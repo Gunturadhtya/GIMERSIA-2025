@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://rw5ak8hsavi4"]
+[gd_scene load_steps=18 format=4 uid="uid://rw5ak8hsavi4"]
 
 [ext_resource type="Script" uid="uid://dgtfth0ejig1m" path="res://Scripts/4_Sytems/Stages/stage_2.gd" id="1_ds88h"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="2_0j8e6"]
 [ext_resource type="Resource" uid="uid://bdabe5tnxey3r" path="res://Resources/BeatMap/stage_2_beat_map.tres" id="2_c6ep6"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="3_bche0"]
 [ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/UI/background_3.png" id="3_t0gjp"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/0_Templates/state_machine.gd" id="4_n86wx"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scripts/2_State/Stage/ready.gd" id="5_nceub"]
@@ -28,6 +29,20 @@ rythim_manager = NodePath("RythmManager")
 conductor = NodePath("Conductor")
 beat_map = ExtResource("2_c6ep6")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 834.0
+offset_top = 159.0
+offset_right = 1128.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("3_bche0")
+theme_override_font_sizes/font_size = 26
+text = "Cube will lit up 
+depending on your beat"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -39,10 +54,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -97.0
-offset_top = -88.0
-offset_right = 131.0
-offset_bottom = 69.0
+offset_left = -371.0
+offset_top = -235.0
+offset_right = 438.0
+offset_bottom = 245.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_t0gjp")
@@ -89,4 +104,4 @@ player = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(651, 357)
-zoom = Vector2(0.9, 0.9)
+zoom = Vector2(0.65, 0.65)

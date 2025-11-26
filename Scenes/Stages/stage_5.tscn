@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://n5fwubnnpujg"]
+[gd_scene load_steps=19 format=4 uid="uid://n5fwubnnpujg"]
 
 [ext_resource type="Script" uid="uid://chraqb7hi35ge" path="res://Scripts/4_Sytems/Stages/stage_5.gd" id="1_n2eva"]
 [ext_resource type="Resource" uid="uid://dvbow1dfl4m8b" path="res://Resources/BeatMap/stage_5_beat_map.tres" id="2_wxj3i"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="3_alkue"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="3_myob2"]
 [ext_resource type="Texture2D" uid="uid://c02xwq81cf5g0" path="res://Assets/UI/Background_2.png" id="4_d3g5n"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="5_rsxxx"]
@@ -31,6 +32,19 @@ beat_map = ExtResource("2_wxj3i")
 target_cleared_cube = 20
 star_2_threshold = 39
 star_3_threshold = 30
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 793.0
+offset_top = 121.0
+offset_right = 1191.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("3_alkue")
+theme_override_font_sizes/font_size = 26
+text = "Good Luck out there and have fun"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_myob2")]
 player = NodePath("../Player")

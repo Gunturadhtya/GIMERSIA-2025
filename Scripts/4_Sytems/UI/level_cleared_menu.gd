@@ -1,13 +1,14 @@
 extends CanvasLayer
 
-@onready var retry_button = $RetryButton
-@onready var next_button = $NextButton
-@onready var menu_button = $MenuButton
+@onready var retry_button = $VBoxContainer2/VBoxContainer/RetryButton
+@onready var next_button = $VBoxContainer2/VBoxContainer/NextButton
+@onready var menu_button = $VBoxContainer2/VBoxContainer/MenuButton
 
-@onready var star_1 = $HBoxContainer/Star1
-@onready var star_2 = $HBoxContainer/Star2
-@onready var star_3 = $HBoxContainer/Star3
+@onready var star_1 = $VBoxContainer2/HBoxContainer/Star1
+@onready var star_2 = $VBoxContainer2/HBoxContainer/Star2
+@onready var star_3 = $VBoxContainer2/HBoxContainer/Star3
 
+@onready var turn_label = $VBoxContainer2/TurnLabel
 var _current_thresholds: Dictionary = {}
 
 func _ready() -> void:
@@ -29,6 +30,8 @@ func _reset_stars():
 
 # Method for setting up Star
 func setup_grade(thresholds: Dictionary, final_value: int):
+	turn_label.set_text("Turn: %d"%[GameStates.game_turn])
+	GameStates.reset_game_stats()
 	_current_thresholds = thresholds
 	_calculate_and_animate_stars(final_value)
 
@@ -81,10 +84,13 @@ func _pop_scale(node: Control):
 	tween.tween_property(node, "scale", Vector2(1.0, 1.0), 0.1)
 
 func _on_retry_pressed():
+	AudioAutoloader.playClick()
 	get_tree().reload_current_scene()
 
 func _on_next_pressed():
+	AudioAutoloader.playClick()
 	GameStates.load_next_level()
 
 func _on_menu_pressed():
+	AudioAutoloader.playClick()
 	get_tree().change_scene_to_packed(GameStates.scene_main_menu)
