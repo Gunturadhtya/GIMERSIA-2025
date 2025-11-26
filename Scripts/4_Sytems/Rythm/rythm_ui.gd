@@ -29,6 +29,8 @@ var last_processed_beat: int = -1
 @onready var beat_label: Label = $BeatLabel
 @onready var beat_num_label: Label = $BeatNumLabel
 
+@onready var star_container: HBoxContainer = $StarContainer
+
 func _ready() -> void:
 	if conductor:
 		GameStates.beat_hit.connect(_on_beat_hit)
@@ -53,6 +55,12 @@ func _process(_delta: float) -> void:
 	#right_progress_bar.value = time_left_visual #uncomment this if you want progress bar
 	
 	beat_num_label.set_text("%d/256"%[GameStates.game_turn])
+	
+	if GameStates.game_turn > get_parent().star_thresholds.get(3, 0):
+		star_container.get_child(0).visible = false
+	
+	if GameStates.game_turn > get_parent().star_thresholds.get(2, 0):
+		star_container.get_child(1).visible = false
 	
 	if player.is_hopping and player.last_hop_beat != last_processed_beat:
 		_validate_player_hit()
