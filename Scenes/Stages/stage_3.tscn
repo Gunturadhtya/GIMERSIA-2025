@@ -43,10 +43,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -642.0
-offset_top = -647.0
-offset_right = 725.5
-offset_bottom = 560.0
+offset_left = -78.0
+offset_top = -59.0
+offset_right = 112.0
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_lo83c")
@@ -90,3 +90,4 @@ note_scene = ExtResource("15_3l3oa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(651, 357)
+zoom = Vector2(0.9, 0.9)

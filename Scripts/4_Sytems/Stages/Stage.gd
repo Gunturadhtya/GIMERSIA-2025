@@ -15,6 +15,7 @@ class_name Stage extends Node2D
 @export var star_3_threshold: int = 0
 
 var current_cleared_cube = 0
+var star_thresholds: Dictionary[int, int]
 
 const TILE_OFFSET = Vector2(1, 1)
 
@@ -23,6 +24,18 @@ func _ready() -> void:
 	get_tree().paused = false	
 	#print(get_screen_pos_for_cell(get_spawn_pos()))
 	conductor.load_map(beat_map)
+	
+	# Dict to store star threshold
+	if star_2_threshold == 0 and star_3_threshold == 0:
+		star_thresholds = {
+			3: round(target_cleared_cube * 1.3),
+			2: round(target_cleared_cube * 1.7)
+		}
+	else:
+		star_thresholds = {
+			3: star_3_threshold,
+			2: star_2_threshold
+		}
 	
 func get_screen_pos_for_cell(grid_pos: Vector2i) -> Vector2:
 	return tilemap_layer.map_to_local(grid_pos) * TILE_OFFSET
@@ -126,18 +139,8 @@ func is_tile_walkable(grid_pos: Vector2i) -> bool:
 func show_grade():
 	player.has_moved = false
 	
-	var star_thresholds: Dictionary[int, int]
-	# Dict to store star threshold
-	if star_2_threshold == 0 and star_3_threshold == 0:
-		star_thresholds = {
-			3: round(target_cleared_cube * 1.3),
-			2: round(target_cleared_cube * 1.7)
-		}
-	else:
-		star_thresholds = {
-			3: star_3_threshold,
-			2: star_2_threshold
-		}
+	
+	
 	
 	# Launching the star calculation method 
 	if level_cleared_menu.has_method("setup_grade"):

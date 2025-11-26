@@ -26,5 +26,8 @@ func _process(_delta):
 	
 	global_position = end_pos.lerp(start_pos, percent)
 	
+	if beats_left <= 0.5:
+		set_texture(load("res://Assets/UI/rythm/line_active.png"))
+	
 	if beats_left < -0.01:
 		queue_free()

@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4h7s8wpriilm"]
+[gd_scene load_steps=16 format=3 uid="uid://c4h7s8wpriilm"]
 
 [ext_resource type="Script" uid="uid://dlubm4qhv2bln" path="res://Scripts/4_Sytems/UI/paused_menu.gd" id="1_ifhmh"]
-[ext_resource type="Texture2D" uid="uid://bfyqajirycyn0" path="res://Assets/Menu/Pause_Icon.png" id="2_0a43j"]
 [ext_resource type="Texture2D" uid="uid://cwofxiij4ywav" path="res://Assets/Menu/Pause_Bg_Menu.png" id="3_xxo6t"]
 [ext_resource type="Texture2D" uid="uid://c2qgma72oly7f" path="res://Assets/Menu/Bacground_text_Game_Paused.png" id="4_p2cdt"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="5_dvi71"]
@@ -11,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="9_5evtf"]
 [ext_resource type="Texture2D" uid="uid://de6fgpqoxnfkr" path="res://Assets/Menu/Bar_Volume.png" id="10_n8cbw"]
 [ext_resource type="Texture2D" uid="uid://cixayqhfxd7tp" path="res://Assets/Menu/Icon_Music.png" id="11_pvm0d"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfk3i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rw52e"]
 
@@ -36,20 +33,6 @@ texture_margin_bottom = 5.0
 
 [node name="PausedMenu" type="CanvasLayer"]
 script = ExtResource("1_ifhmh")
-
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 1178.0
-offset_top = 15.0
-offset_right = 1699.0
-offset_bottom = 536.0
-scale = Vector2(0.1600049, 0.15555653)
-mouse_default_cursor_shape = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yfk3i")
-toggle_mode = true
-icon = ExtResource("2_0a43j")
-flat = true
-icon_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -177,5 +160,3 @@ theme_override_icons/grabber_highlight = ExtResource("9_5evtf")
 theme_override_styles/slider = SubResource("StyleBoxTexture_yfk3i")
 max_value = 1.0
 step = 0.01
-
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_pressed"]

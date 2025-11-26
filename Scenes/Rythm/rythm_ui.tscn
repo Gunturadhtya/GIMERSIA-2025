@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhg2ek4b2v330"]
+[gd_scene load_steps=9 format=3 uid="uid://bhg2ek4b2v330"]
 
 [ext_resource type="Script" uid="uid://blqxm2qtw031a" path="res://Scripts/4_Sytems/Rythm/rythm_ui.gd" id="1_y8bx2"]
 [ext_resource type="Gradient" uid="uid://mlqfwqvuwh2a" path="res://indicator.tres" id="2_2j7v5"]
-[ext_resource type="Texture2D" uid="uid://cq0bi32cr507g" path="res://Assets/UI/beat.png" id="3_hpcjs"]
-[ext_resource type="FontFile" uid="uid://c6tdn2mbktk1h" path="res://Assets/Fonts/Raleway/static/Raleway-Light.ttf" id="4_y8bx2"]
+[ext_resource type="Texture2D" uid="uid://cf7n30r4oga47" path="res://Assets/UI/rythm/circle.png" id="3_43m1e"]
+[ext_resource type="Texture2D" uid="uid://bh7ydcguj37p5" path="res://Assets/UI/rythm/star.png" id="5_u7asm"]
+[ext_resource type="FontFile" uid="uid://ll6dgct54xso" path="res://Assets/Fonts/Raleway/static/Raleway-Regular.ttf" id="6_iwcd6"]
 
 [sub_resource type="Gradient" id="Gradient_dk1pf"]
 colors = PackedColorArray(1, 1, 1, 1, 0.97269875, 0.8214018, 1.540184e-06, 1)
@@ -68,10 +69,8 @@ step = 0.01
 texture_progress = SubResource("GradientTexture1D_2rhx6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(648, 662)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_hpcjs")
-hframes = 2
+position = Vector2(650, 673)
+texture = ExtResource("3_43m1e")
 
 [node name="CenterSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(650, 673)
@@ -83,14 +82,57 @@ position = Vector2(1000, 673)
 position = Vector2(300, 673)
 
 [node name="BeatLabel" type="Label" parent="."]
-offset_left = 576.0
-offset_top = 49.0
-offset_right = 680.0
-offset_bottom = 113.0
+offset_left = 596.0
+offset_top = 609.0
+offset_right = 700.0
+offset_bottom = 648.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_y8bx2")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("6_iwcd6")
+theme_override_font_sizes/font_size = 24
 text = "Beat"
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 71.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_u7asm")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_u7asm")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_u7asm")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 598.0
+offset_top = 87.0
+offset_right = 687.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("6_iwcd6")
+theme_override_font_sizes/font_size = 16
+text = "No. of Beats"
+
+[node name="BeatNumLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 120.0
+offset_right = 43.0
+offset_bottom = 170.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_iwcd6")
+theme_override_font_sizes/font_size = 42
+text = "X/N"
+horizontal_alignment = 1
+vertical_alignment = 1

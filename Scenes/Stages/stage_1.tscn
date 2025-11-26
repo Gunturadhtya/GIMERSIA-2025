@@ -40,10 +40,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -678.0
-offset_top = -750.0
-offset_right = 650.0
-offset_bottom = 946.0
+offset_left = -301.0
+offset_top = -199.0
+offset_right = 322.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_tecur")
@@ -90,3 +90,4 @@ player = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(651, 357)
+zoom = Vector2(0.7, 0.7)

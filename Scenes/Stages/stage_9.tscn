@@ -44,10 +44,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -684.0
-offset_top = -784.0
-offset_right = 683.5
-offset_bottom = 423.0
+offset_left = -472.0
+offset_top = -309.0
+offset_right = 512.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_idx5l")
@@ -100,4 +100,4 @@ world = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(651, 357)
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(0.6, 0.6)
