@@ -7,13 +7,17 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6o6wk"]
 texture = ExtResource("6_wc3gl")
 texture_region_size = Vector2i(100, 100)
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/custom_data_2 = 2
+0:0/1 = 1
+0:0/1/modulate = Color(1, 0, 0, 1)
 2:0/0 = 0
 2:0/0/custom_data_2 = 2
 1:0/0 = 0
 1:0/0/custom_data_1 = 1
 1:0/0/custom_data_2 = 2
+0:1/next_alternative_id = 2
 0:1/0 = 0
 0:1/0/custom_data_1 = 2
 0:1/0/custom_data_2 = 2
@@ -27,8 +31,11 @@ texture_region_size = Vector2i(100, 100)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wc3gl"]
 texture = ExtResource("2_766sf")
 texture_region_size = Vector2i(100, 100)
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/custom_data_2 = 2
+0:0/1 = 1
+0:0/1/modulate = Color(1, 0, 0, 1)
 1:0/0 = 0
 1:0/0/custom_data_1 = 1
 1:0/0/custom_data_2 = 2
@@ -47,8 +54,11 @@ texture_region_size = Vector2i(100, 100)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5n85"]
 texture = ExtResource("3_tg74n")
 texture_region_size = Vector2i(100, 100)
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/custom_data_2 = 2
+0:0/1 = 1
+0:0/1/modulate = Color(1, 0, 0, 1)
 1:0/0 = 0
 1:0/0/custom_data_1 = 1
 1:0/0/custom_data_2 = 2

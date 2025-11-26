@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bodfdnmi8mavi"]
+[gd_scene load_steps=10 format=3 uid="uid://bodfdnmi8mavi"]
 
 [ext_resource type="Script" uid="uid://67phwo4v7smj" path="res://Scripts/3_Entity/abe_enemy.gd" id="1_ipp3g"]
 [ext_resource type="Texture2D" uid="uid://bbt7torhgmp4b" path="res://Assets/Entity/Abe.png" id="2_uddw2"]
@@ -8,8 +8,6 @@
 [ext_resource type="Script" uid="uid://csx03bj1rabks" path="res://Scripts/2_State/Entity/enemy_spawning.gd" id="6_pp0g1"]
 [ext_resource type="Script" uid="uid://caqttqs71bt4u" path="res://Scripts/2_State/Entity/enemy_landing.gd" id="7_clrqo"]
 [ext_resource type="Script" uid="uid://bsw0bfyxd6vob" path="res://Scripts/2_State/Entity/entity_falling.gd" id="7_een2v"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uddw2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7cib"]
 radius = 24.020824
@@ -23,11 +21,6 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_uddw2")
 hframes = 4
 vframes = 6
-
-[node name="MoveHighlighter" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(57.75, 57.75)
-texture = SubResource("PlaceholderTexture2D_uddw2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -25)

@@ -16,6 +16,7 @@ class_name Stage extends Node2D
 @export var star_3_threshold: int
 
 var current_cleared_cube = 0
+var highlight_locked_tiles: Dictionary = {}
 
 const TILE_OFFSET = Vector2(1, 1)
 
@@ -36,7 +37,8 @@ func get_spawn_pos() -> Vector2i:
 	return _spawn_pos
 
 func on_player_landed(grid_pos: Vector2i):
-	
+	if highlight_locked_tiles.has(grid_pos):
+		return
 	var tile_data = tilemap_layer.get_cell_tile_data(grid_pos)
 	if not tile_data:
 		return
@@ -130,7 +132,4 @@ func show_grade():
 	# Launching the star calculation method 
 	if level_cleared_menu.has_method("setup_grade"):
 		level_cleared_menu.setup_grade(star_thresholds, GameStates.game_turn)
-	
-	#level_cleared_menu.visible = true
-	#get_tree().paused = true
 	

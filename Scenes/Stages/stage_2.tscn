@@ -84,6 +84,8 @@ note_scene = ExtResource("13_ibkev")
 [node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
 position = Vector2(444, 563)
 world = NodePath("..")
+normal_tile_source_id = 7
+highlight_tile_source_id = 7
 
 [node name="CedeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("31_rqmrp")]
 position = Vector2(845, 412)
