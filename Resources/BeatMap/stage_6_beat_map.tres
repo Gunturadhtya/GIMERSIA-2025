@@ -9,4 +9,5 @@ loop = true
 [resource]
 script = ExtResource("1_h64s4")
 audio_stream = SubResource("AudioStreamMP3_yj5gh")
+initial_bpm = 80.0
 metadata/_custom_type_script = "uid://dwvk7qlfxywef"

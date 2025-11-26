@@ -49,7 +49,7 @@ grow_vertical = 2
 texture = ExtResource("3_tecur")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAABAAcABgAAAAAAAAAAAAkABgAAAAAAAAD//wsABgAAAAAAAAD+/w0ABgAAAAAAAAD9/w8ABgAAAAAAAAD8/xEABgAAAAAAAAD//wgABgAAAAAAAAD+/woABgAAAAAAAAD9/wwABgAAAAAAAAD8/w4ABgAAAAAAAAD7/xAABgAAAAAAAAD6/xIABgAAAAAAAAACAAUABgAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAAcABgAAAAAAAAAAAAkABgAAAAAAAAD//wsABgAAAAAAAAD+/w0ABgAAAAAAAAD9/w8ABgAAAAAAAAD8/xEABgAAAAAAAAD//wgABgAAAAAAAAD+/woABgAAAAAAAAD9/wwABgAAAAAAAAD8/w4ABgAAAAAAAAD7/xAABgAAAAAAAAD6/xIABgAAAAAAAAACAAUABgAAAAIAAAA=")
 tile_set = ExtResource("5_igpd1")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world", "conductor") instance=ExtResource("6_frccm")]

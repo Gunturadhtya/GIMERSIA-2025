@@ -9,12 +9,15 @@ var game_turn: int = 0
 var game_start: bool = false
 
 const levels: Array[String] = [
-	"res://Scenes/Stages/tutorial_1.tscn",
-	"res://Scenes/Stages/tutorial_2.tscn",
-	"res://Scenes/Stages/tutorial_3.tscn",
 	"res://Scenes/Stages/stage_1.tscn",
 	"res://Scenes/Stages/stage_2.tscn",
 	"res://Scenes/Stages/stage_3.tscn",
+	"res://Scenes/Stages/stage_4.tscn",
+	"res://Scenes/Stages/stage_5.tscn",
+	"res://Scenes/Stages/stage_6.tscn",
+	"res://Scenes/Stages/stage_7.tscn",
+	"res://Scenes/Stages/stage_8.tscn",
+	"res://Scenes/Stages/stage_9.tscn"
 ]
 
 @onready var scene_main_menu = preload("res://Scenes/user_interface/main_menu.tscn")

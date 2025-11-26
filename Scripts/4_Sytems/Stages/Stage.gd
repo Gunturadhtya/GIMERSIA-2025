@@ -51,21 +51,19 @@ func on_player_landed(grid_pos: Vector2i):
 			current_index += 1
 		GameStates.Match.MISS:
 			if current_index == 2: # If Lit up
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,2))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,2))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,2))
+				return
+				
+			elif current_index == 1: # If Half Lit Up
 				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
 				await get_tree().create_timer(0.05).timeout
 				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
 				await get_tree().create_timer(0.05).timeout
 				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
-				return
-				
-			elif current_index == 1: # If Half Lit Up
-				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-				await get_tree().create_timer(0.03).timeout
-				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
-				await get_tree().create_timer(0.03).timeout
-				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
-				await get_tree().create_timer(0.03).timeout
-				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
 				return
 				
 			else: # If not lit up
@@ -83,31 +81,40 @@ func on_player_landed(grid_pos: Vector2i):
 	if current_index == 1:
 		#GameStates.add_score()
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-		await get_tree().create_timer(0.03).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
-		await get_tree().create_timer(0.03).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
-		await get_tree().create_timer(0.03).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-		return
-	
-	## If OK and the Cube are half lit or PERFECT and the cube are not lit or PERFECT and the cube are half lit
-	if current_index == 2 or (current_index == 3 and player.current_match == GameStates.Match.PERFECT):
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
+		return
+	
+	## If OK or PERFECT and the Cube are half lit
+	if (current_index == 2 and player.current_match == GameStates.Match.OK) or \
+	(current_index == 3 and player.current_match == GameStates.Match.PERFECT):
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
+		await get_tree().create_timer(0.05).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
+		await get_tree().create_timer(0.05).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,2))
+		current_cleared_cube += 1
+		return
+	
+	## If PERFECT and the Cube are not lit
+	if current_index == 2 and player.current_match == GameStates.Match.PERFECT:
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+		await get_tree().create_timer(0.05).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
+		await get_tree().create_timer(0.05).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,2))
 		current_cleared_cube += 1
 		return
 	
 	## If the cube already lit up
 	if current_index > target_index:
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,2))
 		await get_tree().create_timer(0.05).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,2))
 		await get_tree().create_timer(0.05).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,2))
 		return
 
 func is_tile_walkable(grid_pos: Vector2i) -> bool:
