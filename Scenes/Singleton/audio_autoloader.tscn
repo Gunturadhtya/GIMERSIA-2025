@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2jvedrgo018g"]
+[gd_scene load_steps=10 format=3 uid="uid://b2jvedrgo018g"]
 
 [ext_resource type="AudioStream" uid="uid://cu0gcssbxx57n" path="res://Assets/Audio/myinstants.mp3" id="1_ie4j8"]
 [ext_resource type="Script" uid="uid://dt7qy3b2f48of" path="res://Scripts/1_Singleton/audio_autoloader.gd" id="1_l6yye"]
 [ext_resource type="AudioStream" uid="uid://qmt2a4fjjmww" path="res://Assets/Audio/game-bonus-02-294436.mp3" id="3_6exk0"]
 [ext_resource type="AudioStream" uid="uid://bdof5gfomkip4" path="res://Assets/Audio/metronome-85688.mp3" id="4_a6rpu"]
+[ext_resource type="AudioStream" uid="uid://crruf8mynwxk8" path="res://Assets/Audio/abe_dying.wav" id="5_muet8"]
+[ext_resource type="AudioStream" uid="uid://cokawjj7qr8t2" path="res://Assets/Audio/abe_jump.wav" id="6_64mei"]
+[ext_resource type="AudioStream" uid="uid://ba8pl6fv72sl" path="res://Assets/Audio/player_dying.wav" id="7_c7p1e"]
+[ext_resource type="AudioStream" uid="uid://buuc1tdmtasnt" path="res://Assets/Audio/player_jump.wav" id="8_4384s"]
+[ext_resource type="AudioStream" uid="uid://kcq2we88f1di" path="res://Assets/Audio/player_jump_active_tile.wav" id="9_ywppx"]
 
 [node name="AudioAutoloader" type="Node"]
 script = ExtResource("1_l6yye")
@@ -17,3 +22,18 @@ volume_db = -7.394
 
 [node name="TickSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_a6rpu")
+
+[node name="AbeDyingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_muet8")
+
+[node name="AbeJumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_64mei")
+
+[node name="PlayerDyingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_c7p1e")
+
+[node name="PlayerJumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_4384s")
+
+[node name="PlayerJumpActiveTileSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ywppx")

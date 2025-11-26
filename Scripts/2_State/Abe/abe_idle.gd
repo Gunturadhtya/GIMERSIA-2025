@@ -47,6 +47,7 @@ func _on_beat_hit(_beat_num: int):
 	var current_turn = GameStates.game_turn
 	# if 2nd beat, abe moves
 	if current_turn % 2 != 0:
+		AudioAutoloader.playAbeJumpSound()
 		_last_moved_turn = current_turn
 		abe.move_highlighter.hide()
 		finished.emit(HOPPING, {"move_direction": _next_move_dir}) 

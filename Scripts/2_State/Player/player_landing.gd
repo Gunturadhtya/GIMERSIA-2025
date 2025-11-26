@@ -41,7 +41,7 @@ func _handle_stomp_logic(enemy_node: Node2D):
 		print("enemy iframe", enemy_node.has_iframe) 
 		return
 
-	AudioAutoloader.playHitSound()
+	AudioAutoloader.playAbeDyingSound()
 	
 	var deduction = 0
 	var label_text = ""
